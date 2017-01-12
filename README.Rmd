@@ -1,7 +1,14 @@
 hoard
 =====
 
-
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 [![Build Status](https://travis-ci.org/ropensci/hoard.svg?branch=master)](https://travis-ci.org/ropensci/hoard)
 
@@ -14,13 +21,11 @@ with a single object there are other benefits as well [maintaining state, e.g.])
 
 ## install
 
-
-```r
+```{r eval=FALSE}
 devtools::install_github("ropensci/hoard")
 ```
 
-
-```r
+```{r}
 library(hoard)
 ```
 
@@ -28,63 +33,45 @@ library(hoard)
 
 initialize client
 
-
-```r
+```{r}
 (x <- hoard::hord())
-#> <hoard> 
-#>   path: 
-#>   cache path: /Users/sacmac/Library/Caches/foobar
 ```
 
 set cache path
 
-
-```r
+```{r}
 x$cache_path_set("foobar")
-#> [1] "/Users/sacmac/Library/Caches/foobar"
 ```
 
 make the directory if doesn't exist
 
-
-```r
+```{r}
 x$mkdir()
 ```
 
 put a file in the cache
 
-
-```r
+```{r}
 cat("hello world", file = file.path(x$cache_path_get(), "foo.txt"))
 ```
 
 list the files
 
-
-```r
+```{r}
 x$list()
-#> [1] "/Users/sacmac/Library/Caches/foobar/foo.txt"
 ```
 
 details
 
-
-```r
+```{r}
 x$details()
-#> <cached files>
-#>   directory: /Users/sacmac/Library/Caches/foobar
-#> 
-#>   file: /foo.txt
-#>   size: 0 mb
 ```
 
 delete by file name
 
-
-```r
+```{r}
 x$delete("foo.txt")
 x$list()
-#> character(0)
 ```
 
 ## todo
