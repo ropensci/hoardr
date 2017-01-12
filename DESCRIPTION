@@ -9,6 +9,7 @@ License: MIT + file LICENSE
 URL: https://github.com/ropensci/hoard
 BugReports: https://github.com/ropensci/hoard/issues
 Imports:
+    R6 (>= 2.2.0),
     rappdirs (>= 0.3.1)
 Suggests:
     roxygen2 (>= 5.0.1)
