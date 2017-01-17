@@ -34,7 +34,7 @@ library(hoardr)
 initialize client
 
 ```{r}
-(x <- hoardr::hord())
+(x <- hoardr::hoard())
 ```
 
 set cache path
