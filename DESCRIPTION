@@ -1,4 +1,4 @@
-Package: hoard
+Package: hoardr
 Type: Package
 Title: Manage Cached Files
 Description: Manage cached files.
@@ -6,8 +6,8 @@ Version: 0.0.3.9200
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/hoard
-BugReports: https://github.com/ropensci/hoard/issues
+URL: https://github.com/ropensci/hoardr
+BugReports: https://github.com/ropensci/hoardr/issues
 Imports:
     R6 (>= 2.2.0),
     rappdirs (>= 0.3.1)

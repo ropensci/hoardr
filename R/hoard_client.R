@@ -1,4 +1,4 @@
-#' hoard class
+#' hoardr class
 #'
 #' @export
 #' @param path (character) a path to cache files in. required
@@ -34,7 +34,7 @@
 #' @format NULL
 #' @usage NULL
 #' @examples
-#' (x <- hord())
+#' (x <- hoard())
 #' x$cache_path_set("foobar")
 #' x
 #' x$path
@@ -65,7 +65,7 @@
 #' x$cache_path_set("stuffthings")
 #' x
 #' x$cache_path_get()
-hord <- function() HoardClient$new()
+hoard <- function() HoardClient$new()
 
 # the client
 HoardClient <- R6::R6Class(

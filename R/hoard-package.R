@@ -1,10 +1,10 @@
-#' hoard
+#' hoardr
 #'
 #' Manage Cached Files
 #'
 #' @import rappdirs
-#' @name hoard-package
-#' @aliases hoard
+#' @name hoardr-package
+#' @aliases hoardr
 #' @docType package
 #' @author Scott Chamberlain \email{myrmecocystus@@gmail.com}
 #' @keywords package
