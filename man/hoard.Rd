@@ -38,6 +38,21 @@ hoardr class
     \item{\code{details()}}{
       Get file details
     }
+    \item{\code{keys()}}{
+      Get SHA keys for all files
+    }
+    \item{\code{key()}}{
+      Get a SHA keys for a single file
+    }
+    \item{\code{files()}}{
+      Get all files as HoardFile objects
+    }
+    \item{\code{compress()}}{
+      Compress files into a zip file - leaving only the zip file
+    }
+    \item{\code{uncompress()}}{
+      Uncompress all files and remove zip file
+    }
   }
 }
 \examples{
@@ -52,7 +67,7 @@ x$mkdir()
 
 # list files in dir
 x$list()
-cat("hello world", file = file.path(x$cache_path_get(), "foo.txt"))
+cat(1:10000L, file = file.path(x$cache_path_get(), "foo.txt"))
 x$list()
 
 # cache details
@@ -61,6 +76,7 @@ x$details()
 # delete files by name - we prepend the base path for you
 x$delete("foo.txt")
 x$list()
+x$details()
 
 # delete all files
 cat("one\\ntwo\\nthree", file = file.path(x$cache_path_get(), "foo.txt"))
@@ -68,9 +84,22 @@ cat("asdfasdf asd fasdf", file = file.path(x$cache_path_get(), "bar.txt"))
 x$delete_all()
 x$list()
 
+# make/get a key for a file
+cat(1:10000L, file = file.path(x$cache_path_get(), "foo.txt"))
+x$keys()
+x$key(x$list()[1])
+
+# as files
+Map(function(z) z$exists(), x$files())
+
+# compress and uncompress
+x$compress()
+x$uncompress()
+
 # reset cache path
 x$cache_path_set("stuffthings")
 x
 x$cache_path_get()
+x$list()
 }
 

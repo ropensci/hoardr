@@ -30,6 +30,21 @@
 #'     \item{\code{details()}}{
 #'       Get file details
 #'     }
+#'     \item{\code{keys()}}{
+#'       Get SHA keys for all files
+#'     }
+#'     \item{\code{key()}}{
+#'       Get a SHA keys for a single file
+#'     }
+#'     \item{\code{files()}}{
+#'       Get all files as HoardFile objects
+#'     }
+#'     \item{\code{compress()}}{
+#'       Compress files into a zip file - leaving only the zip file
+#'     }
+#'     \item{\code{uncompress()}}{
+#'       Uncompress all files and remove zip file
+#'     }
 #'   }
 #' @format NULL
 #' @usage NULL
@@ -45,7 +60,7 @@
 #'
 #' # list files in dir
 #' x$list()
-#' cat("hello world", file = file.path(x$cache_path_get(), "foo.txt"))
+#' cat(1:10000L, file = file.path(x$cache_path_get(), "foo.txt"))
 #' x$list()
 #'
 #' # cache details
@@ -54,6 +69,7 @@
 #' # delete files by name - we prepend the base path for you
 #' x$delete("foo.txt")
 #' x$list()
+#' x$details()
 #'
 #' # delete all files
 #' cat("one\ntwo\nthree", file = file.path(x$cache_path_get(), "foo.txt"))
@@ -61,10 +77,23 @@
 #' x$delete_all()
 #' x$list()
 #'
+#' # make/get a key for a file
+#' cat(1:10000L, file = file.path(x$cache_path_get(), "foo.txt"))
+#' x$keys()
+#' x$key(x$list()[1])
+#'
+#' # as files
+#' Map(function(z) z$exists(), x$files())
+#'
+#' # compress and uncompress
+#' x$compress()
+#' x$uncompress()
+#'
 #' # reset cache path
 #' x$cache_path_set("stuffthings")
 #' x
 #' x$cache_path_get()
+#' x$list()
 hoard <- function() HoardClient$new()
 
 # the client
@@ -132,6 +161,36 @@ HoardClient <- R6::R6Class(
         structure(lapply(files, file_info_), class = "cache_info",
                   cpath = self$cache_path_get())
       }
+    },
+
+    key = function(x) {
+      if (is.na(x) || is.null(x) || length(x) == 0) NULL else digest::digest(x)
+    },
+
+    keys = function() {
+      unlist(lapply(self$list(), self$key))
+    },
+
+    files = function() {
+      tmp <- self$list()
+      if (length(tmp)) lapply(tmp, HoardFile$new) else NULL
+    },
+
+    compress = function() {
+      comp_path <- file.path(self$cache_path_get(), "compress.zip")
+      ff <- self$list()
+      zip(comp_path, ff)
+      # remove files on success
+      unlink(ff)
+      message("compressed!")
+    },
+
+    uncompress = function() {
+      comp_path <- file.path(self$cache_path_get(), "compress.zip")
+      unzip(comp_path, exdir = self$cache_path_get(), junkpaths = TRUE)
+      # remove zip file
+      unlink(comp_path)
+      message("uncompressed!")
     }
   ),
 
@@ -143,3 +202,25 @@ HoardClient <- R6::R6Class(
     }
   )
 )
+
+HoardFile <- R6::R6Class(
+  'HoardFile',
+  public = list(
+    path = NULL,
+
+    print = function(x, ...) {
+      cat("<hoard file> ", sep = "\n")
+      cat(paste0("  path: ", self$path), sep = "\n")
+      invisible(self)
+    },
+
+    initialize = function(path) {
+      if (!missing(path)) self$path <- path
+    },
+
+    exists = function() {
+      file.exists(self$path)
+    }
+  )
+)
+
