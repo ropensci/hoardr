@@ -6,15 +6,18 @@ Description: Suite of tools for managing cached files, targeting
     Provides utilities to manage cache directories, including targeting
     files by path or by key; cached directories can be compressed and 
     uncompressed easily to save disk space.
-Version: 0.0.3.9200
+Version: 0.0.6.9290
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/hoardr
 BugReports: https://github.com/ropensci/hoardr/issues
+VignetteBuilder: knitr
 Imports:
     R6 (>= 2.2.0),
     rappdirs (>= 0.3.1)
 Suggests:
-    roxygen2 (>= 5.0.1)
+    roxygen2 (>= 5.0.1),
+    knitr,
+    rmarkdown
 RoxygenNote: 5.0.1

@@ -1,0 +1,89 @@
+---
+title: "Introduction to the hoardr package"
+author: "Scott Chamberlain"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+vignette: >
+  %\VignetteIndexEntry{Introduction to the hoardr package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+hoardr introduction
+===================
+
+
+`hoardr` is a package for managing cached files.
+
+## Install
+
+Stable from CRAN
+
+```{r eval=FALSE}
+install.packages("hoardr")
+```
+
+Dev version
+
+```{r eval=FALSE}
+devtools::install_github(c("ropensci/hoardr"))
+```
+
+```{r}
+library("hoardr")
+```
+
+## initialize client
+
+```{r}
+(x <- hoardr::hoard())
+```
+
+## set cache path
+
+```{r}
+x$cache_path_set("foobar")
+```
+
+## make the directory if doesn't exist
+
+```{r}
+x$mkdir()
+```
+
+## put a file in the cache
+
+```{r}
+cat("hello world", file = file.path(x$cache_path_get(), "foo.txt"))
+```
+
+## list the files
+
+```{r}
+x$list()
+```
+
+## details
+
+```{r}
+x$details()
+```
+
+## delete by file name
+
+```{r}
+x$delete("foo.txt")
+x$list()
+```
