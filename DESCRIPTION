@@ -20,5 +20,6 @@ Suggests:
     roxygen2 (>= 5.0.1),
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    covr
 RoxygenNote: 5.0.1

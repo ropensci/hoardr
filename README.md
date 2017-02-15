@@ -4,6 +4,8 @@ hoardr
 
 
 [![Build Status](https://travis-ci.org/ropensci/hoardr.svg?branch=master)](https://travis-ci.org/ropensci/hoardr)
+[![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hoardr?branch=master)
+
 
 `hoard` - manage cached files
 
