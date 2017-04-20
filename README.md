@@ -10,11 +10,20 @@ hoardr
 `hoard` - manage cached files
 
 Exposes a single `R6` object so that when the package is imported in another
-package for managing cached files, you don't need to polute the NAMESPACE 
+package for managing cached files, you don't need to pollute the NAMESPACE 
 with a bunch of functions. (you can always just `hoardr::fxn`, but 
 with a single object there are other benefits as well [maintaining state, e.g.]).
 
 ## install
+
+stable
+
+
+```r
+install.packages("hoardr")
+```
+
+dev version
 
 
 ```r
