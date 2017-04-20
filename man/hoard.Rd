@@ -15,45 +15,45 @@ hoardr class
 }
 \details{
 \strong{Methods}
-  \describe{
-    \item{\code{cache_path_get()}}{
-      Get the cache path
-    }
-    \item{\code{cache_path_set()}}{
-      Set the cache path
-    }
-    \item{\code{list()}}{
-      List files in the directory (full file paths)
-    }
-    \item{\code{mkdir()}}{
-      Make the directory if doesn't exist already
-    }
-    \item{\code{delete()}}{
-      Delete files by name
-    }
-    \item{\code{delete_all()}}{
-      Delete all files
-      - force (\code{FALSE} as default)
-    }
-    \item{\code{details()}}{
-      Get file details
-    }
-    \item{\code{keys()}}{
-      Get SHA keys for all files
-    }
-    \item{\code{key()}}{
-      Get a SHA keys for a single file
-    }
-    \item{\code{files()}}{
-      Get all files as HoardFile objects
-    }
-    \item{\code{compress()}}{
-      Compress files into a zip file - leaving only the zip file
-    }
-    \item{\code{uncompress()}}{
-      Uncompress all files and remove zip file
-    }
-  }
+\describe{
+\item{\code{cache_path_get()}}{
+Get the cache path
+}
+\item{\code{cache_path_set()}}{
+Set the cache path
+}
+\item{\code{list()}}{
+List files in the directory (full file paths)
+}
+\item{\code{mkdir()}}{
+Make the directory if doesn't exist already
+}
+\item{\code{delete()}}{
+Delete files by name
+}
+\item{\code{delete_all()}}{
+Delete all files
+- force (\code{FALSE} as default)
+}
+\item{\code{details()}}{
+Get file details
+}
+\item{\code{keys()}}{
+Get SHA keys for all files
+}
+\item{\code{key()}}{
+Get a SHA keys for a single file
+}
+\item{\code{files()}}{
+Get all files as HoardFile objects
+}
+\item{\code{compress()}}{
+Compress files into a zip file - leaving only the zip file
+}
+\item{\code{uncompress()}}{
+Uncompress all files and remove zip file
+}
+}
 }
 \examples{
 (x <- hoard())
@@ -102,4 +102,3 @@ x
 x$cache_path_get()
 x$list()
 }
-

@@ -6,43 +6,43 @@
 #' user_log_dir, user_data_dir, user_config_dir, site_data_dir,
 #' site_config_dir. required
 #' @details
-#' \strong{Methods}
+#' **Methods**
 #'   \describe{
-#'     \item{\code{cache_path_get()}}{
+#'     \item{`cache_path_get()`}{
 #'       Get the cache path
 #'     }
-#'     \item{\code{cache_path_set()}}{
+#'     \item{`cache_path_set()`}{
 #'       Set the cache path
 #'     }
-#'     \item{\code{list()}}{
+#'     \item{`list()`}{
 #'       List files in the directory (full file paths)
 #'     }
-#'     \item{\code{mkdir()}}{
+#'     \item{`mkdir()`}{
 #'       Make the directory if doesn't exist already
 #'     }
-#'     \item{\code{delete()}}{
+#'     \item{`delete()`}{
 #'       Delete files by name
 #'     }
-#'     \item{\code{delete_all()}}{
+#'     \item{`delete_all()`}{
 #'       Delete all files
-#'       - force (\code{FALSE} as default)
+#'       - force (`FALSE` as default)
 #'     }
-#'     \item{\code{details()}}{
+#'     \item{`details()`}{
 #'       Get file details
 #'     }
-#'     \item{\code{keys()}}{
+#'     \item{`keys()`}{
 #'       Get SHA keys for all files
 #'     }
-#'     \item{\code{key()}}{
+#'     \item{`key()`}{
 #'       Get a SHA keys for a single file
 #'     }
-#'     \item{\code{files()}}{
+#'     \item{`files()`}{
 #'       Get all files as HoardFile objects
 #'     }
-#'     \item{\code{compress()}}{
+#'     \item{`compress()`}{
 #'       Compress files into a zip file - leaving only the zip file
 #'     }
-#'     \item{\code{uncompress()}}{
+#'     \item{`uncompress()`}{
 #'       Uncompress all files and remove zip file
 #'     }
 #'   }

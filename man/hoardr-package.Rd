@@ -2,8 +2,8 @@
 % Please edit documentation in R/hoard-package.R
 \docType{package}
 \name{hoardr-package}
-\alias{hoardr}
 \alias{hoardr-package}
+\alias{hoardr}
 \title{hoardr}
 \description{
 Manage Cached Files
@@ -12,4 +12,3 @@ Manage Cached Files
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
 \keyword{package}
-
