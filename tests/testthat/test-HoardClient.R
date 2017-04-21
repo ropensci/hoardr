@@ -133,6 +133,11 @@ test_that("HoardClient works", {
   expect_equal(length(deets1), 4)
   expect_is(deets1[[1]], "list")
   expect_named(deets1[[1]], c('file', 'type', 'size'))
+  ## print method print.cache_info
+  expect_output(print(deets1), "<cached files>")
+  expect_output(print(deets1), "file:")
+  expect_output(print(deets1), "size:")
+  expect_output(print(deets1), "mb")
 
   # test key method
   expect_is(cc$key(x = cc$list()[1]), "character")
@@ -150,6 +155,9 @@ test_that("HoardClient works", {
   expect_true(zz$exists())
   expect_is(zz$path, "character")
   expect_equal(zz$path, cc$list()[1])
+  expect_is(zz$print, "function")
+  expect_output(zz$print(), "<hoard file>")
+  expect_output(zz$print(), "path:")
 
   # test compress method
   comp <- cc$compress()
