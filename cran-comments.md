@@ -19,5 +19,8 @@ This is a new release, so there are no reverse dependencies.
 I have read and agree to the the CRAN policies at 
 https://cran.r-project.org/web/packages/policies.html
 
+This is a re-submission of 1st submission of this package, 
+single quoting rappdirs in Description of DESCRIPTION file.
+
 Thanks!
 Scott Chamberlain
