@@ -138,7 +138,6 @@ HoardClient <- R6::R6Class(
     },
 
     delete = function(files, force = TRUE) {
-      #files <- file.path(self$cache_path_get(), basename(files))
       files <- private$make_paths(files)
       if (!all(file.exists(files))) {
         stop("These files don't exist or can't be found: \n",
@@ -148,7 +147,9 @@ HoardClient <- R6::R6Class(
     },
 
     delete_all = function(force = FALSE) {
-      unlink(self$list(), force = force, recursive = TRUE)
+      ff <- self$list()
+      if (length(ff) == 0) return(message("no files found"))
+      unlink(ff, force = force, recursive = TRUE)
     },
 
     details = function(files = NULL) {
@@ -164,7 +165,14 @@ HoardClient <- R6::R6Class(
     },
 
     key = function(x) {
-      if (is.na(x) || is.null(x) || length(x) == 0) NULL else digest::digest(x)
+      if (is.na(x) || is.null(x) || length(x) == 0) {
+        NULL
+      } else {
+        # check that file exists first
+        if (!file.exists(x)) stop("file does not exist", call. = FALSE)
+        # make hash
+        digest::digest(x)
+      }
     },
 
     keys = function() {
@@ -178,6 +186,8 @@ HoardClient <- R6::R6Class(
 
     compress = function() {
       comp_path <- file.path(self$cache_path_get(), "compress.zip")
+      if (file.exists(comp_path)) return(message("already compressed"))
+      if (length(self$list()) == 0) stop("no files to compress", call. = FALSE)
       ff <- self$list()
       zip(comp_path, ff)
       # remove files on success
@@ -187,6 +197,7 @@ HoardClient <- R6::R6Class(
 
     uncompress = function() {
       comp_path <- file.path(self$cache_path_get(), "compress.zip")
+      if (!file.exists(comp_path)) return(message("no files to uncompress"))
       unzip(comp_path, exdir = self$cache_path_get(), junkpaths = TRUE)
       # remove zip file
       unlink(comp_path)
