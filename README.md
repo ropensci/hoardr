@@ -2,16 +2,17 @@ hoardr
 ======
 
 
-
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/hoardr.svg?branch=master)](https://travis-ci.org/ropensci/hoardr)
 [![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hoardr?branch=master)
-
+[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/hoardr)](https://github.com/metacran/cranlogs.app)
+[![cran version](http://www.r-pkg.org/badges/version/hoardr)](https://cran.r-project.org/package=hoardr)
 
 `hoard` - manage cached files
 
 Exposes a single `R6` object so that when the package is imported in another
-package for managing cached files, you don't need to pollute the NAMESPACE 
-with a bunch of functions. (you can always just `hoardr::fxn`, but 
+package for managing cached files, you don't need to pollute the NAMESPACE
+with a bunch of functions. (you can always just `hoardr::fxn`, but
 with a single object there are other benefits as well [maintaining state, e.g.]).
 
 ## install
@@ -42,8 +43,8 @@ initialize client
 
 ```r
 (x <- hoardr::hoard())
-#> <hoard> 
-#>   path: 
+#> <hoard>
+#>   path:
 #>   cache path:
 ```
 
@@ -84,7 +85,7 @@ details
 x$details()
 #> <cached files>
 #>   directory: /Users/sacmac/Library/Caches/foobar
-#> 
+#>
 #>   file: /foo.txt
 #>   size: 0 mb
 ```
