@@ -3,3 +3,4 @@
 S3method(print,cache_info)
 export(hoard)
 import(rappdirs)
+importFrom(R6,R6Class)

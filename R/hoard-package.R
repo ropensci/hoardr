@@ -3,6 +3,7 @@
 #' Manage Cached Files
 #'
 #' @import rappdirs
+#' @importFrom R6 R6Class
 #' @name hoardr-package
 #' @aliases hoardr
 #' @docType package
