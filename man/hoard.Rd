@@ -74,7 +74,7 @@ info including file path and file size
 \item{\code{keys(algo = "md5")}}{
 Get a hash for all files. Note that these keys may not be unique
 if the files are identical, leading to identical hashes\cr
-return: (character) path to the cache directory
+return: (character) hashes for the files
 }
 \item{\code{key(x, algo = "md5")}}{
 Get a hash for a single file. Note that these keys may not be unique
@@ -89,7 +89,7 @@ return: (character) hash for the file
 }
 \item{\code{files()}}{
 Get all files as HoardFile objects\cr
-return: (character) path to the cache directory
+return: (character) paths to the files
 }
 \item{\code{compress()}}{
 Compress files into a zip file - leaving only the zip file\cr

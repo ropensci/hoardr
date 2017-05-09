@@ -66,7 +66,7 @@
 #'     \item{`keys(algo = "md5")`}{
 #'       Get a hash for all files. Note that these keys may not be unique
 #'       if the files are identical, leading to identical hashes\cr
-#'       return: (character) path to the cache directory
+#'       return: (character) hashes for the files
 #'     }
 #'     \item{`key(x, algo = "md5")`}{
 #'       Get a hash for a single file. Note that these keys may not be unique
@@ -81,7 +81,7 @@
 #'     }
 #'     \item{`files()`}{
 #'       Get all files as HoardFile objects\cr
-#'       return: (character) path to the cache directory
+#'       return: (character) paths to the files
 #'     }
 #'     \item{`compress()`}{
 #'       Compress files into a zip file - leaving only the zip file\cr
@@ -177,11 +177,13 @@ HoardClient <- R6::R6Class(
     },
 
     list = function() {
+      private$check_cache_path()
       list.files(self$cache_path_get(), ignore.case = TRUE, include.dirs = TRUE,
                  recursive = TRUE, full.names = TRUE)
     },
 
     mkdir = function() {
+      private$check_cache_path()
       if (!file.exists(self$cache_path_get())) {
         dir.create(self$cache_path_get(), recursive = TRUE)
       }
@@ -235,6 +237,7 @@ HoardClient <- R6::R6Class(
     },
 
     compress = function() {
+      private$check_cache_path()
       comp_path <- file.path(self$cache_path_get(), "compress.zip")
       if (file.exists(comp_path)) return(message("already compressed"))
       if (length(self$list()) == 0) stop("no files to compress", call. = FALSE)
@@ -246,6 +249,7 @@ HoardClient <- R6::R6Class(
     },
 
     uncompress = function() {
+      private$check_cache_path()
       comp_path <- file.path(self$cache_path_get(), "compress.zip")
       if (!file.exists(comp_path)) return(message("no files to uncompress"))
       unzip(comp_path, exdir = self$cache_path_get(), junkpaths = TRUE)
@@ -260,6 +264,12 @@ HoardClient <- R6::R6Class(
 
     make_paths = function(x) {
       file.path(self$cache_path_get(), basename(x))
+    },
+
+    check_cache_path = function() {
+      if (is.null(self$cache_path_get())) {
+        stop("cache path is NULL, see cache_path_set", call. = FALSE)
+      }
     }
   )
 )
