@@ -27,14 +27,14 @@ hoardr introduction
 `hoardr` is a package for managing cached files.
 
 The benefit of using `hoardr` vs. raw `rapddirs` is that `hoardr` exposes
-an easy to use `R6` class that has variables and functions within it, 
-so you don't have to import function foo or bar, etc. Just a single 
+an easy to use `R6` class that has variables and functions within it,
+so you don't have to import function foo or bar, etc. Just a single
 object.
 
-You can easily wrap `hoardr` with user facing functions in your own 
+You can easily wrap `hoardr` with user facing functions in your own
 package to manage cached files.
 
-If you find any bugs or have any feature requests get in touch at 
+If you find any bugs or have any feature requests get in touch at
 <https://github.com/ropensci/hoardr>.
 
 ## Install
@@ -64,7 +64,7 @@ library("hoardr")
 ## set cache path
 
 ```{r}
-x$cache_path_set("foobar")
+x$cache_path_set("foobar", type = 'tempdir')
 ```
 
 ## make the directory if doesn't exist
