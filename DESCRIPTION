@@ -6,7 +6,7 @@ Description: Suite of tools for managing cached files, targeting
     Provides utilities to manage cache directories, including targeting
     files by path or by key; cached directories can be compressed and
     uncompressed easily to save disk space.
-Version: 0.1.2
+Version: 0.1.8.9100
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
@@ -16,7 +16,8 @@ VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Imports:
     R6 (>= 2.2.0),
-    rappdirs (>= 0.3.1)
+    rappdirs (>= 0.3.1),
+    digest
 Suggests:
     roxygen2 (>= 6.0.1),
     testthat,

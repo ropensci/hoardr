@@ -23,8 +23,14 @@ test_that("HoardClient works", {
   # test cache_path_set method
   expect_is(bb$cache_path_set, "function")
   expect_error(bb$cache_path_set(), "argument \"path\" is missing")
-  expect_is(bb$cache_path_set("test123"), "character")
-  expect_match(bb$cache_path_set("test123"), "test123")
+  expect_is(
+    bb$cache_path_set(path = "test123", type = 'tempdir'),
+    "character"
+  )
+  expect_match(
+    bb$cache_path_set(path = "test123", type = 'tempdir'),
+    "test123"
+  )
 
   # clean up before testing
   if (dir.exists(bb$cache_path_get())) {
@@ -99,7 +105,7 @@ test_that("HoardClient works", {
   expect_is(cc, "R6")
 
   # set cache path
-  cc$cache_path_set("test456")
+  cc$cache_path_set(path = "test456", type = 'tempdir')
 
   # mkdir
   cc$mkdir()

@@ -6,58 +6,104 @@
 \arguments{
 \item{path}{(character) a path to cache files in. required}
 
-\item{type}{(character) type of cache. One of user_cache_dir (default),
-user_log_dir, user_data_dir, user_config_dir, site_data_dir,
-site_config_dir. required}
+\item{type}{(character) type of cache. One of "user_cache_dir" (default),
+"user_log_dir", "user_data_dir", "user_config_dir", "site_data_dir",
+"site_config_dir". Can also pass in any function that gives a path to a
+directory, e.g., \code{tempdir()}. required.}
 }
 \description{
 hoardr class
 }
 \details{
+For the purposes of caching, you'll likely want to stick with
+\code{user_cache_dir}, but you can change the type of cache with the \code{type}
+parameter.
+
+\code{hoard} is just a tiny wrapper around \code{HoardClient$new()} - use either
+one.
+
 \strong{Methods}
 \describe{
 \item{\code{cache_path_get()}}{
-Get the cache path
+Get the cache path\cr
+return: (character) path to the cache directory
 }
-\item{\code{cache_path_set()}}{
-Set the cache path
+\item{\code{cache_path_set(path, type = "user_cache_dir", prefix = "R")}}{
+Set the cache path. By default, we set cache path to
+\code{file.path(user_cache_dir, prefix, path)}. Note that this does not
+actually make the directory, but just sets the path to it.
+\itemize{
+\item path (character) the path to be appended to the cache path set
+by \code{type}
+\item type (character) the type of cache, see \link{rappdirs}
+\item prefix (character) prefix to the \code{path} value. Default: "R"
+}\cr
+return: (character) path to the cache directory just set
 }
 \item{\code{list()}}{
-List files in the directory (full file paths)
+List files in the directory (full file paths)\cr
+return: (character) vector of file paths for files in the cache
 }
 \item{\code{mkdir()}}{
-Make the directory if doesn't exist already
+Make the directory if doesn't exist already\cr
+return: \code{TRUE}, invisibly
 }
-\item{\code{delete()}}{
+\item{\code{delete(files, force = TRUE)}}{
 Delete files by name
+\itemize{
+\item files (character) vector/list of file paths
+\item force (logical) force deletion? Default: \code{TRUE}
+}\cr
+retun: nothing
 }
-\item{\code{delete_all()}}{
+\item{\code{delete_all(force = TRUE)}}{
 Delete all files
-- force (\code{FALSE} as default)
+\itemize{
+\item force (logical) force deletion? Default: \code{FALSE}
+}\cr
+return: nothing
 }
-\item{\code{details()}}{
+\item{\code{details(files = NULL)}}{
 Get file details
+\itemize{
+\item files (character) vector/list of file paths
+}\cr
+return: objects of class \code{cache_info}, each with brief summary
+info including file path and file size
 }
-\item{\code{keys()}}{
-Get SHA keys for all files
+\item{\code{keys(algo = "md5")}}{
+Get a hash for all files. Note that these keys may not be unique
+if the files are identical, leading to identical hashes\cr
+return: (character) path to the cache directory
 }
-\item{\code{key()}}{
-Get a SHA keys for a single file
+\item{\code{key(x, algo = "md5")}}{
+Get a hash for a single file. Note that these keys may not be unique
+if the files are identical, leading to identical hashes
+\itemize{
+\item x (character) path to a file
+\item algo (character) the algorithm to be used, passed on to
+\code{\link[digest:digest]{digest::digest()}}, choices: md5 (default), sha1, crc32, sha256,
+sha512, xxhash32, xxhash64 and murmur32.
+}\cr
+return: (character) hash for the file
 }
 \item{\code{files()}}{
-Get all files as HoardFile objects
+Get all files as HoardFile objects\cr
+return: (character) path to the cache directory
 }
 \item{\code{compress()}}{
-Compress files into a zip file - leaving only the zip file
+Compress files into a zip file - leaving only the zip file\cr
+return: (character) path to the cache directory
 }
 \item{\code{uncompress()}}{
-Uncompress all files and remove zip file
+Uncompress all files and remove zip file\cr
+return: (character) path to the cache directory
 }
 }
 }
 \examples{
 (x <- hoard())
-x$cache_path_set("foobar")
+x$cache_path_set(path = "foobar", type = 'tempdir')
 x
 x$path
 x$cache_path_get()
@@ -97,8 +143,11 @@ x$compress()
 x$uncompress()
 
 # reset cache path
-x$cache_path_set("stuffthings")
+x$cache_path_set(path = "stuffthings", type = "tempdir")
 x
 x$cache_path_get()
 x$list()
+
+# cleanup
+unlink(x$cache_path_get())
 }
