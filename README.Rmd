@@ -53,7 +53,7 @@ initialize client
 set cache path
 
 ```{r}
-x$cache_path_set("foobar")
+x$cache_path_set("foobar", type = 'tempdir')
 ```
 
 make the directory if doesn't exist

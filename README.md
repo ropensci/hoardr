@@ -2,11 +2,13 @@ hoardr
 ======
 
 
+
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/ropensci/hoardr.svg?branch=master)](https://travis-ci.org/ropensci/hoardr)
 [![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hoardr?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/hoardr)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/hoardr)](https://cran.r-project.org/package=hoardr)
+
 
 `hoard` - manage cached files
 
@@ -43,17 +45,17 @@ initialize client
 
 ```r
 (x <- hoardr::hoard())
-#> <hoard>
-#>   path:
-#>   cache path:
+#> <hoard> 
+#>   path: 
+#>   cache path: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/stuffthings
 ```
 
 set cache path
 
 
 ```r
-x$cache_path_set("foobar")
-#> [1] "/Users/sacmac/Library/Caches/foobar"
+x$cache_path_set("foobar", type = 'tempdir')
+#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar"
 ```
 
 make the directory if doesn't exist
@@ -75,7 +77,7 @@ list the files
 
 ```r
 x$list()
-#> [1] "/Users/sacmac/Library/Caches/foobar/foo.txt"
+#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar/foo.txt"
 ```
 
 details
@@ -84,8 +86,8 @@ details
 ```r
 x$details()
 #> <cached files>
-#>   directory: /Users/sacmac/Library/Caches/foobar
-#>
+#>   directory: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar
+#> 
 #>   file: /foo.txt
 #>   size: 0 mb
 ```

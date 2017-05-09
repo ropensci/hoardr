@@ -9,7 +9,7 @@
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
+<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -60,7 +60,7 @@
       <h1>Introduction to the hoardr package</h1>
                         <h4 class="author">Scott Chamberlain</h4>
             
-            <h4 class="date">2017-04-20</h4>
+            <h4 class="date">2017-05-09</h4>
           </div>
 
     
@@ -68,65 +68,65 @@
 <div class="contents">
 <div id="hoardr-introduction" class="section level1">
 <h1 class="hasAnchor">
-<html><body><a href="#hoardr-introduction" class="anchor"> </a></body></html>hoardr introduction</h1>
+<a href="#hoardr-introduction" class="anchor"></a>hoardr introduction</h1>
 <p><code>hoardr</code> is a package for managing cached files.</p>
 <p>The benefit of using <code>hoardr</code> vs. raw <code>rapddirs</code> is that <code>hoardr</code> exposes an easy to use <code>R6</code> class that has variables and functions within it, so you don’t have to import function foo or bar, etc. Just a single object.</p>
 <p>You can easily wrap <code>hoardr</code> with user facing functions in your own package to manage cached files.</p>
 <p>If you find any bugs or have any feature requests get in touch at <a href="https://github.com/ropensci/hoardr" class="uri">https://github.com/ropensci/hoardr</a>.</p>
 <div id="install" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#install" class="anchor"> </a></body></html>Install</h2>
+<a href="#install" class="anchor"></a>Install</h2>
 <p>Stable from CRAN</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">"hoardr"</span>)</code></pre></div>
 <p>Dev version</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="kw">c</span>(<span class="st">"ropensci/hoardr"</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="kw">c</span>(<span class="st">"ropensci/hoardr"</span>))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">"hoardr"</span>)</code></pre></div>
 </div>
 <div id="initialize-client" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#initialize-client" class="anchor"> </a></body></html>initialize client</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(x &lt;-<span class="st"> </span>hoardr::<span class="kw"><a href="../reference/hoard.html">hoard</a></span>())
+<a href="#initialize-client" class="anchor"></a>initialize client</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">(x &lt;-<span class="st"> </span>hoardr<span class="op">::</span><span class="kw"><a href="../reference/hoard.html">hoard</a></span>())
 <span class="co">#&gt; &lt;hoard&gt; </span>
 <span class="co">#&gt;   path: </span>
-<span class="co">#&gt;   cache path: /Users/sacmac/Library/Caches/stuffthings</span></code></pre></div>
+<span class="co">#&gt;   cache path:</span></code></pre></div>
 </div>
 <div id="set-cache-path" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#set-cache-path" class="anchor"> </a></body></html>set cache path</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x$<span class="kw">cache_path_set</span>(<span class="st">"foobar"</span>)
-<span class="co">#&gt; [1] "/Users/sacmac/Library/Caches/foobar"</span></code></pre></div>
+<a href="#set-cache-path" class="anchor"></a>set cache path</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span><span class="kw">cache_path_set</span>(<span class="st">"foobar"</span>, <span class="dt">type =</span> <span class="st">'tempdir'</span>)
+<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//Rtmpw2e58C/R/foobar"</span></code></pre></div>
 </div>
 <div id="make-the-directory-if-doesnt-exist" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#make-the-directory-if-doesnt-exist" class="anchor"> </a></body></html>make the directory if doesn’t exist</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x$<span class="kw">mkdir</span>()</code></pre></div>
+<a href="#make-the-directory-if-doesnt-exist" class="anchor"></a>make the directory if doesn’t exist</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span><span class="kw">mkdir</span>()</code></pre></div>
 </div>
 <div id="put-a-file-in-the-cache" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#put-a-file-in-the-cache" class="anchor"> </a></body></html>put a file in the cache</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">"hello world"</span>, <span class="dt">file =</span> <span class="kw">file.path</span>(x$<span class="kw">cache_path_get</span>(), <span class="st">"foo.txt"</span>))</code></pre></div>
+<a href="#put-a-file-in-the-cache" class="anchor"></a>put a file in the cache</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="st">"hello world"</span>, <span class="dt">file =</span> <span class="kw">file.path</span>(x<span class="op">$</span><span class="kw">cache_path_get</span>(), <span class="st">"foo.txt"</span>))</code></pre></div>
 </div>
 <div id="list-the-files" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#list-the-files" class="anchor"> </a></body></html>list the files</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x$<span class="kw">list</span>()
-<span class="co">#&gt; [1] "/Users/sacmac/Library/Caches/foobar/foo.txt"</span></code></pre></div>
+<a href="#list-the-files" class="anchor"></a>list the files</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span><span class="kw">list</span>()
+<span class="co">#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//Rtmpw2e58C/R/foobar/foo.txt"</span></code></pre></div>
 </div>
 <div id="details" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#details" class="anchor"> </a></body></html>details</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x$<span class="kw">details</span>()
+<a href="#details" class="anchor"></a>details</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span><span class="kw">details</span>()
 <span class="co">#&gt; &lt;cached files&gt;</span>
-<span class="co">#&gt;   directory: /Users/sacmac/Library/Caches/foobar</span>
+<span class="co">#&gt;   directory: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//Rtmpw2e58C/R/foobar</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;   file: /foo.txt</span>
 <span class="co">#&gt;   size: 0 mb</span></code></pre></div>
 </div>
 <div id="delete-by-file-name" class="section level2">
 <h2 class="hasAnchor">
-<html><body><a href="#delete-by-file-name" class="anchor"> </a></body></html>delete by file name</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x$<span class="kw">delete</span>(<span class="st">"foo.txt"</span>)
-x$<span class="kw">list</span>()
+<a href="#delete-by-file-name" class="anchor"></a>delete by file name</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x<span class="op">$</span><span class="kw">delete</span>(<span class="st">"foo.txt"</span>)
+x<span class="op">$</span><span class="kw">list</span>()
 <span class="co">#&gt; character(0)</span></code></pre></div>
 </div>
 </div>
