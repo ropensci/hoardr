@@ -6,6 +6,7 @@
 #' "user_log_dir", "user_data_dir", "user_config_dir", "site_data_dir",
 #' "site_config_dir". Can also pass in any function that gives a path to a
 #' directory, e.g., `tempdir()`. required.
+#'
 #' @details
 #' For the purposes of caching, you'll likely want to stick with
 #' `user_cache_dir`, but you can change the type of cache with the `type`
@@ -17,8 +18,8 @@
 #' **Methods**
 #'   \describe{
 #'     \item{`cache_path_get()`}{
-#'       Get the cache path\cr
-#'       return: (character) path to the cache directory
+#'       Get the cache path
+#'       **return**: (character) path to the cache directory
 #'     }
 #'     \item{`cache_path_set(path, type = "user_cache_dir", prefix = "R")`}{
 #'       Set the cache path. By default, we set cache path to
@@ -29,44 +30,44 @@
 #'         by `type`
 #'        \item type (character) the type of cache, see [rappdirs]
 #'        \item prefix (character) prefix to the `path` value. Default: "R"
-#'       }\cr
-#'       return: (character) path to the cache directory just set
+#'       }
+#'       **return**: (character) path to the cache directory just set
 #'     }
 #'     \item{`list()`}{
-#'       List files in the directory (full file paths)\cr
-#'       return: (character) vector of file paths for files in the cache
+#'       List files in the directory (full file paths)
+#'       **return**: (character) vector of file paths for files in the cache
 #'     }
 #'     \item{`mkdir()`}{
-#'       Make the directory if doesn't exist already\cr
-#'       return: `TRUE`, invisibly
+#'       Make the directory if doesn't exist already
+#'       **return**: `TRUE`, invisibly
 #'     }
 #'     \item{`delete(files, force = TRUE)`}{
 #'       Delete files by name
 #'       \itemize{
 #'        \item files (character) vector/list of file paths
 #'        \item force (logical) force deletion? Default: `TRUE`
-#'       }\cr
-#'       retun: nothing
+#'       }
+#'       **return**: nothing
 #'     }
 #'     \item{`delete_all(force = TRUE)`}{
 #'       Delete all files
 #'       \itemize{
 #'        \item force (logical) force deletion? Default: `FALSE`
-#'       }\cr
-#'       return: nothing
+#'       }
+#'       **return**: nothing
 #'     }
 #'     \item{`details(files = NULL)`}{
 #'       Get file details
 #'       \itemize{
 #'        \item files (character) vector/list of file paths
-#'       }\cr
-#'       return: objects of class `cache_info`, each with brief summary
+#'       }
+#'       **return**: objects of class `cache_info`, each with brief summary
 #'       info including file path and file size
 #'     }
 #'     \item{`keys(algo = "md5")`}{
 #'       Get a hash for all files. Note that these keys may not be unique
-#'       if the files are identical, leading to identical hashes\cr
-#'       return: (character) hashes for the files
+#'       if the files are identical, leading to identical hashes
+#'       **return**: (character) hashes for the files
 #'     }
 #'     \item{`key(x, algo = "md5")`}{
 #'       Get a hash for a single file. Note that these keys may not be unique
@@ -74,22 +75,22 @@
 #'       \itemize{
 #'        \item x (character) path to a file
 #'        \item algo (character) the algorithm to be used, passed on to
-#'        [digest::digest()], choices: md5 (default), sha1, crc32, sha256,
-#'        sha512, xxhash32, xxhash64 and murmur32.
-#'       }\cr
-#'       return: (character) hash for the file
+#'          [digest::digest()], choices: md5 (default), sha1, crc32, sha256,
+#'          sha512, xxhash32, xxhash64 and murmur32.
+#'       }
+#'       **return**: (character) hash for the file
 #'     }
 #'     \item{`files()`}{
-#'       Get all files as HoardFile objects\cr
-#'       return: (character) paths to the files
+#'       Get all files as HoardFile objects
+#'       **return**: (character) paths to the files
 #'     }
 #'     \item{`compress()`}{
-#'       Compress files into a zip file - leaving only the zip file\cr
-#'       return: (character) path to the cache directory
+#'       Compress files into a zip file - leaving only the zip file
+#'       **return**: (character) path to the cache directory
 #'     }
 #'     \item{`uncompress()`}{
-#'       Uncompress all files and remove zip file\cr
-#'       return: (character) path to the cache directory
+#'       Uncompress all files and remove zip file
+#'       **return**: (character) path to the cache directory
 #'     }
 #'   }
 #' @format NULL

@@ -25,8 +25,8 @@ itself exported, but you can use it if you want via \code{:::}
 \strong{Methods}
 \describe{
 \item{\code{cache_path_get()}}{
-Get the cache path\cr
-return: (character) path to the cache directory
+Get the cache path
+\strong{return}: (character) path to the cache directory
 }
 \item{\code{cache_path_set(path, type = "user_cache_dir", prefix = "R")}}{
 Set the cache path. By default, we set cache path to
@@ -37,44 +37,44 @@ actually make the directory, but just sets the path to it.
 by \code{type}
 \item type (character) the type of cache, see \link{rappdirs}
 \item prefix (character) prefix to the \code{path} value. Default: "R"
-}\cr
-return: (character) path to the cache directory just set
+}
+\strong{return}: (character) path to the cache directory just set
 }
 \item{\code{list()}}{
-List files in the directory (full file paths)\cr
-return: (character) vector of file paths for files in the cache
+List files in the directory (full file paths)
+\strong{return}: (character) vector of file paths for files in the cache
 }
 \item{\code{mkdir()}}{
-Make the directory if doesn't exist already\cr
-return: \code{TRUE}, invisibly
+Make the directory if doesn't exist already
+\strong{return}: \code{TRUE}, invisibly
 }
 \item{\code{delete(files, force = TRUE)}}{
 Delete files by name
 \itemize{
 \item files (character) vector/list of file paths
 \item force (logical) force deletion? Default: \code{TRUE}
-}\cr
-retun: nothing
+}
+\strong{return}: nothing
 }
 \item{\code{delete_all(force = TRUE)}}{
 Delete all files
 \itemize{
 \item force (logical) force deletion? Default: \code{FALSE}
-}\cr
-return: nothing
+}
+\strong{return}: nothing
 }
 \item{\code{details(files = NULL)}}{
 Get file details
 \itemize{
 \item files (character) vector/list of file paths
-}\cr
-return: objects of class \code{cache_info}, each with brief summary
+}
+\strong{return}: objects of class \code{cache_info}, each with brief summary
 info including file path and file size
 }
 \item{\code{keys(algo = "md5")}}{
 Get a hash for all files. Note that these keys may not be unique
-if the files are identical, leading to identical hashes\cr
-return: (character) hashes for the files
+if the files are identical, leading to identical hashes
+\strong{return}: (character) hashes for the files
 }
 \item{\code{key(x, algo = "md5")}}{
 Get a hash for a single file. Note that these keys may not be unique
@@ -84,20 +84,20 @@ if the files are identical, leading to identical hashes
 \item algo (character) the algorithm to be used, passed on to
 \code{\link[digest:digest]{digest::digest()}}, choices: md5 (default), sha1, crc32, sha256,
 sha512, xxhash32, xxhash64 and murmur32.
-}\cr
-return: (character) hash for the file
+}
+\strong{return}: (character) hash for the file
 }
 \item{\code{files()}}{
-Get all files as HoardFile objects\cr
-return: (character) paths to the files
+Get all files as HoardFile objects
+\strong{return}: (character) paths to the files
 }
 \item{\code{compress()}}{
-Compress files into a zip file - leaving only the zip file\cr
-return: (character) path to the cache directory
+Compress files into a zip file - leaving only the zip file
+\strong{return}: (character) path to the cache directory
 }
 \item{\code{uncompress()}}{
-Uncompress all files and remove zip file\cr
-return: (character) path to the cache directory
+Uncompress all files and remove zip file
+\strong{return}: (character) path to the cache directory
 }
 }
 }

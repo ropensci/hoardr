@@ -8,8 +8,6 @@
 
 0 errors | 0 warnings | 1 note
 
-
-
 ## Reverse dependencies
 
 * I have run R CMD check on the 2 downstream dependencies
@@ -18,7 +16,8 @@ No problems were found. The maintainers of all deps are me.
 
 ---
 
-This submission includes xxxx.
+This submission includes fix for cache location to use session 
+temporary directory, and other small improvements.
 
 Thanks!
 Scott Chamberlain
