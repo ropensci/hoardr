@@ -11,8 +11,8 @@
 #' `user_cache_dir`, but you can change the type of cache with the `type`
 #' parameter.
 #'
-#' `hoard` is just a tiny wrapper around `HoardClient$new()` - use either
-#' one.
+#' `hoard` is just a tiny wrapper around `HoardClient$new()`, which isn't
+#' itself exported, but you can use it if you want via `:::`
 #'
 #' **Methods**
 #'   \describe{

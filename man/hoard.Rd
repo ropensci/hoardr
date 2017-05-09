@@ -19,8 +19,8 @@ For the purposes of caching, you'll likely want to stick with
 \code{user_cache_dir}, but you can change the type of cache with the \code{type}
 parameter.
 
-\code{hoard} is just a tiny wrapper around \code{HoardClient$new()} - use either
-one.
+\code{hoard} is just a tiny wrapper around \code{HoardClient$new()}, which isn't
+itself exported, but you can use it if you want via \code{:::}
 
 \strong{Methods}
 \describe{

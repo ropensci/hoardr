@@ -8,6 +8,13 @@
 \description{
 Manage Cached Files
 }
+\details{
+\code{hoardr} is a tiny package with just a single export \code{\link[=hoard]{hoard()}}.
+The package goal is to make it easy to setup, use, and manage cached
+files for another R package. In addition, you can export functions in
+your own package using \code{hoardr} for users to manage their cached
+files.
+}
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
