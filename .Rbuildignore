@@ -10,3 +10,4 @@ man-roxygen
 .github
 docs
 revdep
+^codemeta\.json$
