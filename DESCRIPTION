@@ -14,6 +14,7 @@ URL: https://github.com/ropensci/hoardr
 BugReports: https://github.com/ropensci/hoardr/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
+Encodiong: UTF-8
 Imports:
     R6 (>= 2.2.0),
     rappdirs (>= 0.3.1),
@@ -23,4 +24,4 @@ Suggests:
     testthat,
     knitr,
     rmarkdown
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
