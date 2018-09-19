@@ -4,6 +4,7 @@ hoardr
 
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![cran checks](https://cranchecks.info/badges/worst/hoardr)](https://cranchecks.info/pkgs/hoardr)
 [![Build Status](https://travis-ci.org/ropensci/hoardr.svg?branch=master)](https://travis-ci.org/ropensci/hoardr)
 [![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hoardr?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/hoardr)](https://github.com/metacran/cranlogs.app)
@@ -110,6 +111,6 @@ see [issue 1](https://github.com/ropensci/hoardr/issues/1)
 * Please [report any issues or bugs](https://github.com/ropensci/hoardr/issues).
 * License: MIT
 * Get citation information for `hoardr` in R doing `citation(package = 'hoardr')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![rofooter](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
