@@ -21,7 +21,7 @@
 #'       Get the cache path
 #'       **return**: (character) path to the cache directory
 #'     }
-#'     \item{`cache_path_set(path, type = "user_cache_dir", prefix = "R")`}{
+#'     \item{`cache_path_set(path = NULL, type = "user_cache_dir", prefix = "R", full_path = NULL)`}{
 #'       Set the cache path. By default, we set cache path to
 #'       `file.path(user_cache_dir, prefix, path)`. Note that this does not
 #'       actually make the directory, but just sets the path to it.
@@ -30,6 +30,8 @@
 #'         by `type`
 #'        \item type (character) the type of cache, see [rappdirs]
 #'        \item prefix (character) prefix to the `path` value. Default: "R"
+#'        \item full_path (character) instead of using `path`, `type`, and `prefix`
+#'         just set the full path with this parameter
 #'       }
 #'       **return**: (character) path to the cache directory just set
 #'     }
@@ -98,6 +100,13 @@
 #' @examples
 #' (x <- hoard())
 #' x$cache_path_set(path = "foobar", type = 'tempdir')
+#' x
+#' x$path
+#' x$cache_path_get()
+#' 
+#' # Or you can set the full path directly with `full_path`
+#' mydir <- file.path(tempdir(), "foobar")
+#' x$cache_path_set(full_path = mydir)
 #' x
 #' x$path
 #' x$cache_path_get()
@@ -170,10 +179,17 @@ HoardClient <- R6::R6Class(
       if (inherits(res, "error")) return(NULL) else res
     },
 
-    cache_path_set = function(path, type = "user_cache_dir", prefix = "R") {
-      self$path <- path
-      private$hoard_env$cache_path <-
-        file.path(eval(parse(text = type))(), prefix, path)
+    cache_path_set = function(path = NULL, type = "user_cache_dir", prefix = "R", 
+      full_path = NULL) {
+
+      if (is.null(full_path)) {
+        self$path <- path
+        private$hoard_env$cache_path <-
+          file.path(eval(parse(text = type))(), prefix, path)
+      } else {
+        private$hoard_env$cache_path <- full_path
+      }
+      # return path to user
       self$cache_path_get()
     },
 

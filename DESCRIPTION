@@ -25,3 +25,6 @@ Suggests:
     knitr,
     rmarkdown
 RoxygenNote: 6.1.0
+X-schema.org-applicationCategory: Data
+X-schema.org-keywords: caching, data, files, xml, pdf
+X-schema.org-isPartOf: https://ropensci.org

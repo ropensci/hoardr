@@ -22,7 +22,7 @@ test_that("HoardClient works", {
 
   # test cache_path_set method
   expect_is(bb$cache_path_set, "function")
-  expect_error(bb$cache_path_set(), "argument \"path\" is missing")
+  expect_equal(length(bb$cache_path_set()), 0)
   expect_is(
     bb$cache_path_set(path = "test123", type = 'tempdir'),
     "character"
@@ -30,6 +30,13 @@ test_that("HoardClient works", {
   expect_match(
     bb$cache_path_set(path = "test123", type = 'tempdir'),
     "test123"
+  )
+
+  # use full_path
+  vv <- tempdir()
+  expect_match(
+    bb$cache_path_set(full_path = vv),
+    vv
   )
 
   # clean up before testing

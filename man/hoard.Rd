@@ -28,7 +28,7 @@ itself exported, but you can use it if you want via \code{:::}
 Get the cache path
 \strong{return}: (character) path to the cache directory
 }
-\item{\code{cache_path_set(path, type = "user_cache_dir", prefix = "R")}}{
+\item{\code{cache_path_set(path = NULL, type = "user_cache_dir", prefix = "R", full_path = NULL)}}{
 Set the cache path. By default, we set cache path to
 \code{file.path(user_cache_dir, prefix, path)}. Note that this does not
 actually make the directory, but just sets the path to it.
@@ -37,6 +37,8 @@ actually make the directory, but just sets the path to it.
 by \code{type}
 \item type (character) the type of cache, see \link{rappdirs}
 \item prefix (character) prefix to the \code{path} value. Default: "R"
+\item full_path (character) instead of using \code{path}, \code{type}, and \code{prefix}
+just set the full path with this parameter
 }
 \strong{return}: (character) path to the cache directory just set
 }
@@ -104,6 +106,13 @@ Uncompress all files and remove zip file
 \examples{
 (x <- hoard())
 x$cache_path_set(path = "foobar", type = 'tempdir')
+x
+x$path
+x$cache_path_get()
+
+# Or you can set the full path directly with `full_path`
+mydir <- file.path(tempdir(), "foobar")
+x$cache_path_set(full_path = mydir)
 x
 x$path
 x$cache_path_get()
