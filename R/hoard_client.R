@@ -94,6 +94,17 @@
 #'       Uncompress all files and remove zip file
 #'       **return**: (character) path to the cache directory
 #'     }
+#'     \item{`exists(files)`}{
+#'       Check if files exist
+#'       \itemize{
+#'        \item files: (character) one or more files, paths are optional
+#'       }
+#'       **return**: (data.frame) with two columns: 
+#'       \itemize{
+#'        \item files: (character) file path 
+#'        \item exists: (boolean) does it exist or not
+#'       }
+#'     }
 #'   }
 #' @format NULL
 #' @usage NULL
@@ -118,6 +129,15 @@
 #' x$list()
 #' cat(1:10000L, file = file.path(x$cache_path_get(), "foo.txt"))
 #' x$list()
+#' 
+#' # add more files
+#' cat(letters, file = file.path(x$cache_path_get(), "foo2.txt"))
+#' cat(LETTERS, file = file.path(x$cache_path_get(), "foo3.txt"))
+#' 
+#' # see if files exist
+#' x$exists("foo.txt") # exists
+#' x$exists(c("foo.txt", "foo3.txt")) # both exist
+#' x$exists(c("foo.txt", "foo3.txt", "stuff.txt")) # one doesn't exist
 #'
 #' # cache details
 #' x$details()
@@ -273,6 +293,11 @@ HoardClient <- R6::R6Class(
       # remove zip file
       unlink(comp_path)
       message("uncompressed!")
+    },
+
+    exists = function(files) {
+      files <- private$make_paths(files)
+      data.frame(files = files, exists = file.exists(files), stringsAsFactors = FALSE)
     }
   ),
 

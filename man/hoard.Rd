@@ -101,6 +101,17 @@ Compress files into a zip file - leaving only the zip file
 Uncompress all files and remove zip file
 \strong{return}: (character) path to the cache directory
 }
+\item{\code{exists(files)}}{
+Check if files exist
+\itemize{
+\item files: (character) one or more files, paths are optional
+}
+\strong{return}: (data.frame) with two columns:
+\itemize{
+\item files: (character) file path
+\item exists: (boolean) does it exist or not
+}
+}
 }
 }
 \examples{
@@ -124,6 +135,15 @@ x$mkdir()
 x$list()
 cat(1:10000L, file = file.path(x$cache_path_get(), "foo.txt"))
 x$list()
+
+# add more files
+cat(letters, file = file.path(x$cache_path_get(), "foo2.txt"))
+cat(LETTERS, file = file.path(x$cache_path_get(), "foo3.txt"))
+
+# see if files exist
+x$exists("foo.txt") # exists
+x$exists(c("foo.txt", "foo3.txt")) # both exist
+x$exists(c("foo.txt", "foo3.txt", "stuff.txt")) # one doesn't exist
 
 # cache details
 x$details()
