@@ -135,6 +135,8 @@
   "developmentStatus": "active",
   "releaseNotes": "https://github.com/ropensci/hoardr/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/hoardr/blob/master/README.md",
-  "fileSize": "8.086KB",
-  "keywords": ["caching", "r", "rstats", "r-package"]
+  "fileSize": "8.339KB",
+  "keywords": ["caching", "data", "files", "xml", "pdf", "r", "rstats", "r-package"],
+  "applicationCategory": "Data",
+  "isPartOf": "https://ropensci.org"
 }
