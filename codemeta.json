@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/hoardr",
   "issueTracker": "https://github.com/ropensci/hoardr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.0.9100",
+  "version": "0.5.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -135,7 +135,7 @@
   "developmentStatus": "active",
   "releaseNotes": "https://github.com/ropensci/hoardr/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/hoardr/blob/master/README.md",
-  "fileSize": "8.339KB",
+  "fileSize": "8.787KB",
   "keywords": ["caching", "data", "files", "xml", "pdf", "r", "rstats", "r-package"],
   "applicationCategory": "Data",
   "isPartOf": "https://ropensci.org"
