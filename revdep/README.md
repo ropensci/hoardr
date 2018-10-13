@@ -1,41 +1,38 @@
-# Setup
+# Platform
 
-## Platform
-
-|setting  |value                                       |
+|field    |value                                       |
 |:--------|:-------------------------------------------|
-|version  |R version 3.4.0 Patched (2017-04-24 r72617) |
+|version  |R version 3.5.1 Patched (2018-08-12 r75119) |
+|os       |macOS High Sierra 10.13.6                   |
 |system   |x86_64, darwin15.6.0                        |
-|ui       |RStudio (1.1.223)                           |
+|ui       |X11                                         |
 |language |(EN)                                        |
 |collate  |en_US.UTF-8                                 |
-|tz       |America/Vancouver                           |
-|date     |2017-05-09                                  |
+|ctype    |en_US.UTF-8                                 |
+|tz       |US/Pacific                                  |
+|date     |2018-10-12                                  |
 
-## Packages
+# Dependencies
 
-|package |*  |version |date       |source                     |
-|:-------|:--|:-------|:----------|:--------------------------|
-|hoardr  |   |0.2.0   |2017-05-09 |local (ropensci/hoardr@NA) |
+|package |old   |new   |Δ  |
+|:-------|:-----|:-----|:--|
+|hoardr  |0.2.0 |0.5.0 |*  |
 
-# Check results
+# Revdeps
 
-2 packages
+## All (11)
 
-|package  |version | errors| warnings| notes|
-|:--------|:-------|------:|--------:|-----:|
-|rnoaa    |0.7.0   |      0|        0|     0|
-|taxizedb |0.1.0   |      0|        0|     0|
-
-## rnoaa (0.7.0)
-Maintainer: Scott Chamberlain <myrmecocystus@gmail.com>  
-Bug reports: https://github.com/ropensci/rnoaa/issues
-
-0 errors | 0 warnings | 0 notes
-
-## taxizedb (0.1.0)
-Maintainer: Scott Chamberlain <myrmecocystus+r@gmail.com>  
-Bug reports: https://github.com/ropensci/taxizedb/issues
-
-0 errors | 0 warnings | 0 notes
+|package                    |version |error |warning |note |
+|:--------------------------|:-------|:-----|:-------|:----|
+|bomrang                    |0.4.0   |      |        |     |
+|crminer                    |0.1.4   |      |        |     |
+|[finch](problems.md#finch) |0.2.0   |      |        |1    |
+|fulltext                   |1.0.1   |      |        |     |
+|getCRUCLdata               |0.2.5   |      |        |     |
+|rcoreoa                    |0.3.0   |      |        |     |
+|rdpla                      |0.2.0   |      |        |     |
+|rerddap                    |0.4.2   |      |        |     |
+|rnoaa                      |0.7.0   |      |        |     |
+|taxizedb                   |0.1.4   |      |        |     |
+|traits                     |0.3.0   |      |        |     |
 

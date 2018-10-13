@@ -1,3 +1,12 @@
+hoardr 0.5.0
+============
+
+### NEW FEATURES
+
+* Gains new method on the `HoardClient` object to check if one or more files exist, returning a data.frame (#10)
+* `cache_path_set()` method on `HoardClient` gains new parameter `full_path` to make the base cache path directly with a full path rather than using the three other parameters (`path`, `type`, and `prefix`) (#12)
+
+
 hoardr 0.2.0
 ============
 

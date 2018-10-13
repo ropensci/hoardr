@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.4.0 patched
-* ubuntu 12.04 (on travis-ci), R 3.4.0
+* local OS X install, R 3.5.1 patched
+* ubuntu 12.04 (on travis-ci), R 3.5.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -10,14 +10,13 @@
 
 ## Reverse dependencies
 
-* I have run R CMD check on the 2 downstream dependencies
+* I have run R CMD check on the 11 downstream dependencies
 (<https://github.com/ropensci/hoardr/blob/master/revdep/README.md>).
-No problems were found. The maintainers of all deps are me.
+No problems were found.
 
 ---
 
-This submission includes fix for cache location to use session 
-temporary directory, and other small improvements.
+This submission includes a new method and a new parameter in an existing method.
 
 Thanks!
 Scott Chamberlain
