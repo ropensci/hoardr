@@ -18,11 +18,24 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
+<meta property="og:title" content="hoardr class — hoard" />
+
+<meta property="og:description" content="hoardr class" />
+<meta name="twitter:card" content="summary" />
+
+
 
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -46,18 +59,37 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">hoardr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">hoardr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.5.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../articles/index.html">Articles</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/hoardr_vignette.html">Introduction to the hoardr package</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -69,6 +101,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -76,18 +109,22 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>hoardr class</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ropensci/hoardr/blob/master/R/hoard_client.R'><code>R/hoard_client.R</code></a></small>
+    <div class="hidden name"><code>hoard.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>hoardr class</p>
     
+    </div>
 
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -107,13 +144,13 @@ directory, e.g., <code>tempdir()</code>. required.</p></td>
 
     <p>For the purposes of caching, you'll likely want to stick with
 <code>user_cache_dir</code>, but you can change the type of cache with the <code>type</code>
-parameter.
-    <code>hoard</code> is just a tiny wrapper around <code>HoardClient$new()</code>, which isn't
-itself exported, but you can use it if you want via <code>:::</code>
-    <strong>Methods</strong></p><dl class='dl-horizontal'>
+parameter.</p>
+<p><code>hoard</code> is just a tiny wrapper around <code>HoardClient$new()</code>, which isn't
+itself exported, but you can use it if you want via <code>:::</code></p>
+<p><strong>Methods</strong></p><dl class='dl-horizontal'>
 <dt><code>cache_path_get()</code></dt><dd><p>Get the cache path
-return: (character) path to the cache directory</p></dd>
-<dt><code>cache_path_set(path, type = "user_cache_dir", prefix = "R")</code></dt><dd><p>Set the cache path. By default, we set cache path to
+<strong>return</strong>: (character) path to the cache directory</p></dd>
+<dt><code>cache_path_set(path = NULL, type = "user_cache_dir", prefix = "R", full_path = NULL)</code></dt><dd><p>Set the cache path. By default, we set cache path to
 <code>file.path(user_cache_dir, prefix, path)</code>. Note that this does not
 actually make the directory, but just sets the path to it.
 <ul>
@@ -121,32 +158,34 @@ actually make the directory, but just sets the path to it.
 by <code>type</code></p></li>
 <li><p>type (character) the type of cache, see rappdirs</p></li>
 <li><p>prefix (character) prefix to the <code>path</code> value. Default: "R"</p></li>
+<li><p>full_path (character) instead of using <code>path</code>, <code>type</code>, and <code>prefix</code>
+just set the full path with this parameter</p></li>
 </ul>
-return: (character) path to the cache directory just set</p></dd>
+<strong>return</strong>: (character) path to the cache directory just set</p></dd>
 <dt><code>list()</code></dt><dd><p>List files in the directory (full file paths)
-return: (character) vector of file paths for files in the cache</p></dd>
+<strong>return</strong>: (character) vector of file paths for files in the cache</p></dd>
 <dt><code>mkdir()</code></dt><dd><p>Make the directory if doesn't exist already
-return: <code>TRUE</code>, invisibly</p></dd>
+<strong>return</strong>: <code>TRUE</code>, invisibly</p></dd>
 <dt><code>delete(files, force = TRUE)</code></dt><dd><p>Delete files by name
 <ul>
 <li><p>files (character) vector/list of file paths</p></li>
 <li><p>force (logical) force deletion? Default: <code>TRUE</code></p></li>
 </ul>
-retun: nothing</p></dd>
+<strong>return</strong>: nothing</p></dd>
 <dt><code>delete_all(force = TRUE)</code></dt><dd><p>Delete all files
 <ul>
 <li><p>force (logical) force deletion? Default: <code>FALSE</code></p></li>
 </ul>
-return: nothing</p></dd>
+<strong>return</strong>: nothing</p></dd>
 <dt><code>details(files = NULL)</code></dt><dd><p>Get file details
 <ul>
 <li><p>files (character) vector/list of file paths</p></li>
 </ul>
-return: objects of class <code>cache_info</code>, each with brief summary
+<strong>return</strong>: objects of class <code>cache_info</code>, each with brief summary
 info including file path and file size</p></dd>
 <dt><code>keys(algo = "md5")</code></dt><dd><p>Get a hash for all files. Note that these keys may not be unique
 if the files are identical, leading to identical hashes
-return: (character) hashes for the files</p></dd>
+<strong>return</strong>: (character) hashes for the files</p></dd>
 <dt><code>key(x, algo = "md5")</code></dt><dd><p>Get a hash for a single file. Note that these keys may not be unique
 if the files are identical, leading to identical hashes
 <ul>
@@ -155,39 +194,87 @@ if the files are identical, leading to identical hashes
 <code><a href='http://www.rdocumentation.org/packages/digest/topics/digest'>digest::digest()</a></code>, choices: md5 (default), sha1, crc32, sha256,
 sha512, xxhash32, xxhash64 and murmur32.</p></li>
 </ul>
-return: (character) hash for the file</p></dd>
+<strong>return</strong>: (character) hash for the file</p></dd>
 <dt><code>files()</code></dt><dd><p>Get all files as HoardFile objects
-return: (character) paths to the files</p></dd>
+<strong>return</strong>: (character) paths to the files</p></dd>
 <dt><code>compress()</code></dt><dd><p>Compress files into a zip file - leaving only the zip file
-return: (character) path to the cache directory</p></dd>
+<strong>return</strong>: (character) path to the cache directory</p></dd>
 <dt><code>uncompress()</code></dt><dd><p>Uncompress all files and remove zip file
-return: (character) path to the cache directory</p></dd>
+<strong>return</strong>: (character) path to the cache directory</p></dd>
+<dt><code>exists(files)</code></dt><dd><p>Check if files exist
+<ul>
+<li><p>files: (character) one or more files, paths are optional</p></li>
+</ul>
+<strong>return</strong>: (data.frame) with two columns:
+<ul>
+<li><p>files: (character) file path</p></li>
+<li><p>exists: (boolean) does it exist or not</p></li>
+</ul></p></dd>
 </dl>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>(<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>hoard</span>())</div><div class='output co'>#&gt; &lt;hoard&gt; 
 #&gt;   path: 
-#&gt;   cache path: </div><div class='input'><span class='no'>x</span>$<span class='fu'>cache_path_set</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"foobar"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'tempdir'</span>)</div><div class='output co'>#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar"</div><div class='input'><span class='no'>x</span></div><div class='output co'>#&gt; &lt;hoard&gt; 
+#&gt;   cache path: </div><div class='input'><span class='no'>x</span>$<span class='fu'>cache_path_set</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"foobar"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>'tempdir'</span>)</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/R/foobar"</div><div class='input'><span class='no'>x</span></div><div class='output co'>#&gt; &lt;hoard&gt; 
 #&gt;   path: foobar
-#&gt;   cache path: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar</div><div class='input'><span class='no'>x</span>$<span class='no'>path</span></div><div class='output co'>#&gt; [1] "foobar"</div><div class='input'><span class='no'>x</span>$<span class='fu'>cache_path_get</span>()</div><div class='output co'>#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar"</div><div class='input'>
+#&gt;   cache path: /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/R/foobar</div><div class='input'><span class='no'>x</span>$<span class='no'>path</span></div><div class='output co'>#&gt; [1] "foobar"</div><div class='input'><span class='no'>x</span>$<span class='fu'>cache_path_get</span>()</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/R/foobar"</div><div class='input'>
+<span class='co'># Or you can set the full path directly with `full_path`</span>
+<span class='no'>mydir</span> <span class='kw'>&lt;-</span> <span class='fu'>file.path</span>(<span class='fu'>tempdir</span>(), <span class='st'>"foobar"</span>)
+<span class='no'>x</span>$<span class='fu'>cache_path_set</span>(<span class='kw'>full_path</span> <span class='kw'>=</span> <span class='no'>mydir</span>)</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar"</div><div class='input'><span class='no'>x</span></div><div class='output co'>#&gt; &lt;hoard&gt; 
+#&gt;   path: foobar
+#&gt;   cache path: /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar</div><div class='input'><span class='no'>x</span>$<span class='no'>path</span></div><div class='output co'>#&gt; [1] "foobar"</div><div class='input'><span class='no'>x</span>$<span class='fu'>cache_path_get</span>()</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar"</div><div class='input'>
 <span class='co'># make the directory if doesn't exist already</span>
 <span class='no'>x</span>$<span class='fu'>mkdir</span>()
 
 <span class='co'># list files in dir</span>
 <span class='no'>x</span>$<span class='fu'>list</span>()</div><div class='output co'>#&gt; character(0)</div><div class='input'><span class='fu'>cat</span>(<span class='fl'>1</span>:<span class='fl'>10000L</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'>file.path</span>(<span class='no'>x</span>$<span class='fu'>cache_path_get</span>(), <span class='st'>"foo.txt"</span>))
-<span class='no'>x</span>$<span class='fu'>list</span>()</div><div class='output co'>#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar/foo.txt"</div><div class='input'>
+<span class='no'>x</span>$<span class='fu'>list</span>()</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo.txt"</div><div class='input'>
+<span class='co'># add more files</span>
+<span class='fu'>cat</span>(<span class='no'>letters</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'>file.path</span>(<span class='no'>x</span>$<span class='fu'>cache_path_get</span>(), <span class='st'>"foo2.txt"</span>))
+<span class='fu'>cat</span>(<span class='no'>LETTERS</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'>file.path</span>(<span class='no'>x</span>$<span class='fu'>cache_path_get</span>(), <span class='st'>"foo3.txt"</span>))
+
+<span class='co'># see if files exist</span>
+<span class='no'>x</span>$<span class='fu'>exists</span>(<span class='st'>"foo.txt"</span>) <span class='co'># exists</span></div><div class='output co'>#&gt;                                                                         files
+#&gt; 1 /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo.txt
+#&gt;   exists
+#&gt; 1   TRUE</div><div class='input'><span class='no'>x</span>$<span class='fu'>exists</span>(<span class='fu'>c</span>(<span class='st'>"foo.txt"</span>, <span class='st'>"foo3.txt"</span>)) <span class='co'># both exist</span></div><div class='output co'>#&gt;                                                                          files
+#&gt; 1  /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo.txt
+#&gt; 2 /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo3.txt
+#&gt;   exists
+#&gt; 1   TRUE
+#&gt; 2   TRUE</div><div class='input'><span class='no'>x</span>$<span class='fu'>exists</span>(<span class='fu'>c</span>(<span class='st'>"foo.txt"</span>, <span class='st'>"foo3.txt"</span>, <span class='st'>"stuff.txt"</span>)) <span class='co'># one doesn't exist</span></div><div class='output co'>#&gt;                                                                           files
+#&gt; 1   /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo.txt
+#&gt; 2  /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo3.txt
+#&gt; 3 /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/stuff.txt
+#&gt;   exists
+#&gt; 1   TRUE
+#&gt; 2   TRUE
+#&gt; 3  FALSE</div><div class='input'>
 <span class='co'># cache details</span>
 <span class='no'>x</span>$<span class='fu'>details</span>()</div><div class='output co'>#&gt; &lt;cached files&gt;
-#&gt;   directory: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar
+#&gt;   directory: /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar
 #&gt; 
 #&gt;   file: /foo.txt
 #&gt;   size: 0.049 mb
+#&gt; 
+#&gt;   file: /foo2.txt
+#&gt;   size: 0 mb
+#&gt; 
+#&gt;   file: /foo3.txt
+#&gt;   size: 0 mb
 #&gt; </div><div class='input'>
 <span class='co'># delete files by name - we prepend the base path for you</span>
 <span class='no'>x</span>$<span class='fu'>delete</span>(<span class='st'>"foo.txt"</span>)
-<span class='no'>x</span>$<span class='fu'>list</span>()</div><div class='output co'>#&gt; character(0)</div><div class='input'><span class='no'>x</span>$<span class='fu'>details</span>()</div><div class='output co'>#&gt; &lt;cached files&gt;
-#&gt;   directory: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar
+<span class='no'>x</span>$<span class='fu'>list</span>()</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo2.txt"
+#&gt; [2] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar/foo3.txt"</div><div class='input'><span class='no'>x</span>$<span class='fu'>details</span>()</div><div class='output co'>#&gt; &lt;cached files&gt;
+#&gt;   directory: /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/foobar
+#&gt; 
+#&gt;   file: /foo2.txt
+#&gt;   size: 0 mb
+#&gt; 
+#&gt;   file: /foo3.txt
+#&gt;   size: 0 mb
 #&gt; </div><div class='input'>
 <span class='co'># delete all files</span>
 <span class='fu'>cat</span>(<span class='st'>"one\ntwo\nthree"</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'>file.path</span>(<span class='no'>x</span>$<span class='fu'>cache_path_get</span>(), <span class='st'>"foo.txt"</span>))
@@ -204,9 +291,9 @@ return: (character) path to the cache directory</p></dd>
 <span class='co'># compress and uncompress</span>
 <span class='no'>x</span>$<span class='fu'>compress</span>()</div><div class='output co'>#&gt; <span class='message'>compressed!</span></div><div class='input'><span class='no'>x</span>$<span class='fu'>uncompress</span>()</div><div class='output co'>#&gt; <span class='message'>uncompressed!</span></div><div class='input'>
 <span class='co'># reset cache path</span>
-<span class='no'>x</span>$<span class='fu'>cache_path_set</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"stuffthings"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"tempdir"</span>)</div><div class='output co'>#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/stuffthings"</div><div class='input'><span class='no'>x</span></div><div class='output co'>#&gt; &lt;hoard&gt; 
+<span class='no'>x</span>$<span class='fu'>cache_path_set</span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"stuffthings"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"tempdir"</span>)</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/R/stuffthings"</div><div class='input'><span class='no'>x</span></div><div class='output co'>#&gt; &lt;hoard&gt; 
 #&gt;   path: stuffthings
-#&gt;   cache path: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/stuffthings</div><div class='input'><span class='no'>x</span>$<span class='fu'>cache_path_get</span>()</div><div class='output co'>#&gt; [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/stuffthings"</div><div class='input'><span class='no'>x</span>$<span class='fu'>list</span>()</div><div class='output co'>#&gt; character(0)</div><div class='input'>
+#&gt;   cache path: /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/R/stuffthings</div><div class='input'><span class='no'>x</span>$<span class='fu'>cache_path_get</span>()</div><div class='output co'>#&gt; [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//Rtmph1GIsW/R/stuffthings"</div><div class='input'><span class='no'>x</span>$<span class='fu'>list</span>()</div><div class='output co'>#&gt; character(0)</div><div class='input'>
 <span class='co'># cleanup</span>
 <span class='fu'>unlink</span>(<span class='no'>x</span>$<span class='fu'>cache_path_get</span>())</div></pre>
   </div>
@@ -229,11 +316,14 @@ return: (character) path to the cache directory</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
