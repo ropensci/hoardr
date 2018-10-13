@@ -48,7 +48,7 @@ initialize client
 (x <- hoardr::hoard())
 #> <hoard> 
 #>   path: 
-#>   cache path: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/stuffthings
+#>   cache path:
 ```
 
 set cache path
@@ -56,7 +56,7 @@ set cache path
 
 ```r
 x$cache_path_set("foobar", type = 'tempdir')
-#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpsvaRsk/R/foobar"
 ```
 
 make the directory if doesn't exist
@@ -78,7 +78,7 @@ list the files
 
 ```r
 x$list()
-#> [1] "/var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar/foo.txt"
+#> [1] "/var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpsvaRsk/R/foobar/foo.txt"
 ```
 
 details
@@ -87,7 +87,7 @@ details
 ```r
 x$details()
 #> <cached files>
-#>   directory: /var/folders/gs/4khph0xs0436gmd2gdnwsg080000gn/T//RtmpMKopcW/R/foobar
+#>   directory: /var/folders/fc/n7g_vrvn0sx_st0p8lxb3ts40000gn/T//RtmpsvaRsk/R/foobar
 #> 
 #>   file: /foo.txt
 #>   size: 0 mb
