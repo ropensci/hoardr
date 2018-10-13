@@ -33,10 +33,9 @@ test_that("HoardClient works", {
   )
 
   # use full_path
-  vv <- tempdir()
-  expect_match(
-    bb$cache_path_set(full_path = vv),
-    vv
+  expect_is(
+    bb$cache_path_set(full_path = tempdir()),
+    'character'
   )
 
   # clean up before testing
