@@ -12,7 +12,7 @@
 
 * I have run R CMD check on the 11 downstream dependencies
 (<https://github.com/ropensci/hoardr/blob/master/revdep/README.md>).
-No problems were found.
+No problems were found related to this package.
 
 ---
 
