@@ -1,5 +1,4 @@
 context("hoard")
-
 test_that("hoard works", {
   aa <- hoard()
 
@@ -21,6 +20,23 @@ test_that("hoard works", {
   expect_null(aa$type)
 })
 
+context("hoard: multiple instances")
+test_that("hoard works", {
+  aa <- hoard()
+  bb <- hoard()
+
+  aa$cache_path_set('foobar')
+
+  expect_match(aa$cache_path_get(), 'foobar')
+  expect_null(bb$cache_path_get())
+
+  bb$cache_path_set('helloworld')
+
+  expect_match(aa$cache_path_get(), 'foobar')
+  expect_match(bb$cache_path_get(), 'helloworld')
+})
+
+context("hoard: fails well")
 test_that("hoard fails well", {
   expect_error(hoard(f = 5),
                  "unused argument")
