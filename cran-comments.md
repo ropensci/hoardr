@@ -1,7 +1,7 @@
 ## Test environments
 
 * local OS X install, R 3.5.1 patched
-* ubuntu 12.04 (on travis-ci), R 3.5.1
+* ubuntu 14.04 (on travis-ci), R 3.5.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -16,7 +16,7 @@ No problems were found.
 
 ---
 
-This submission includes a new method and a new parameter in an existing method.
+This submission includes a fix so that many objects in the same R session don't share variables anymore.
 
 Thanks!
 Scott Chamberlain

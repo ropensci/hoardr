@@ -1,3 +1,11 @@
+hoardr 0.5.2
+============
+
+### BUG FIXES
+
+* Important fix: `HoardClient`, called by `hoardr()` function, was storing the cache path in an environment inside the R6 class. If multiple instances of `HoardClient` exist in the same R session, the cache path for any one then affects all others. Fixed by storing as a private variable int he R6 class instead of in an environment (#14)
+
+
 hoardr 0.5.0
 ============
 

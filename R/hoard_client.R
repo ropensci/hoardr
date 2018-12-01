@@ -194,8 +194,7 @@ HoardClient <- R6::R6Class(
     },
 
     cache_path_get = function() {
-      res <- tryCatch(get('cache_path', envir = private$hoard_env),
-               error = function(e) e)
+      res <- tryCatch(private$hoard_env$cache_path, error = function(e) e)
       if (inherits(res, "error")) return(NULL) else res
     },
 
@@ -302,7 +301,7 @@ HoardClient <- R6::R6Class(
   ),
 
   private = list(
-    hoard_env = new.env(),
+    hoard_env = NULL,
 
     make_paths = function(x) {
       file.path(self$cache_path_get(), basename(x))
