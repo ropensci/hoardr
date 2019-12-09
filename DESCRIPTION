@@ -10,7 +10,7 @@ Version: 0.5.2.9100
 Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com"))
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/hoardr
+URL: https://docs.ropensci.org/hoardr, https://github.com/ropensci/hoardr
 BugReports: https://github.com/ropensci/hoardr/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
