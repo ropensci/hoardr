@@ -1,9 +1,9 @@
 language: r
-sudo: false
 cache: packages
 dist: trusty
+ox: linux
 
-matrix:
+jobs:
   include:
     - os: linux
        r: oldrel
