@@ -154,7 +154,7 @@ x$list()
 x$details()
 
 # delete all files
-cat("one\\ntwo\\nthree", file = file.path(x$cache_path_get(), "foo.txt"))
+cat("one\ntwo\nthree", file = file.path(x$cache_path_get(), "foo.txt"))
 cat("asdfasdf asd fasdf", file = file.path(x$cache_path_get(), "bar.txt"))
 x$delete_all()
 x$list()

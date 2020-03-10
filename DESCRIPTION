@@ -6,25 +6,26 @@ Description: Suite of tools for managing cached files, targeting
     Provides utilities to manage cache directories, including targeting
     files by path or by key; cached directories can be compressed and
     uncompressed easily to save disk space.
-Version: 0.5.2.9100
-Authors@R: c(person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com"))
+Version: 0.5.2.93
+Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
+    email = "myrmecocystus@gmail.com",
+    comment = c(ORCID="0000-0003-2542-2202"))
 License: MIT + file LICENSE
-URL: https://docs.ropensci.org/hoardr, https://github.com/ropensci/hoardr
+URL: https://github.com/ropensci/hoardr (devel)
+    https://docs.ropensci.org/hoardr (docs)
 BugReports: https://github.com/ropensci/hoardr/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 Encoding: UTF-8
 Imports:
-    R6 (>= 2.2.0),
-    rappdirs (>= 0.3.1),
+    R6,
+    rappdirs,
     digest
 Suggests:
-    roxygen2 (>= 6.0.1),
     testthat,
     knitr,
     rmarkdown
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 X-schema.org-applicationCategory: Data
 X-schema.org-keywords: caching, data, files, xml, pdf
 X-schema.org-isPartOf: https://ropensci.org
