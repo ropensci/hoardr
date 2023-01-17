@@ -6,10 +6,11 @@ Description: Suite of tools for managing cached files, targeting
     Provides utilities to manage cache directories, including targeting
     files by path or by key; cached directories can be compressed and
     uncompressed easily to save disk space.
-Version: 0.5.2.93
-Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
-    email = "myrmecocystus@gmail.com",
-    comment = c(ORCID="0000-0003-2542-2202"))
+Version: 0.5.2.94
+Authors@R: c(person("Scott", "Chamberlain", role = c"aut", 
+    comment = c(ORCID="0000-0003-2542-2202")),
+    person("Tamás", "Stirling", role = c("ctb", "cre"),
+    email = "stirling.tamas@gmail.com"))
 License: MIT + file LICENSE
 URL: https://github.com/ropensci/hoardr (devel)
     https://docs.ropensci.org/hoardr (docs)
