@@ -7,7 +7,7 @@ Description: Suite of tools for managing cached files, targeting
     files by path or by key; cached directories can be compressed and
     uncompressed easily to save disk space.
 Version: 0.5.2.94
-Authors@R: c(person("Scott", "Chamberlain", role = c"aut", 
+Authors@R: c(person("Scott", "Chamberlain", role = "aut", 
     comment = c(ORCID="0000-0003-2542-2202")),
     person("Tamás", "Stirling", role = c("ctb", "cre"),
     email = "stirling.tamas@gmail.com"))
