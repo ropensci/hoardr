@@ -1,5 +1,9 @@
-hoardr
-======
+---
+output: github_document
+editor_options: 
+  chunk_output_type: console
+---
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
@@ -9,12 +13,13 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+# hoardr
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![cran checks](https://cranchecks.info/badges/worst/hoardr)](https://cranchecks.info/pkgs/hoardr)
+[![status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![cran checks](https://badges.cranchecks.info/worst/hoardr.svg)](https://badges.cranchecks.info/worst/hoardr.svg)
 [![R-check](https://github.com/ropensci/hoardr/workflows/R-check/badge.svg)](https://github.com/ropensci/hoardr/actions?query=workflow%3AR-check)
 [![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hoardr?branch=master)
-[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/hoardr)](https://github.com/metacran/cranlogs.app)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/hoardr)](https://cran.r-project.org/package=hoardr)
 [![cran version](https://www.r-pkg.org/badges/version/hoardr)](https://cran.r-project.org/package=hoardr)
 
 

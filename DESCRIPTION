@@ -12,8 +12,7 @@ Authors@R: c(person("Scott", "Chamberlain", role = "aut",
     person("Tamás", "Stirling", role = c("ctb", "cre"),
     email = "stirling.tamas@gmail.com"))
 License: MIT + file LICENSE
-URL: https://github.com/ropensci/hoardr (devel)
-    https://docs.ropensci.org/hoardr (docs)
+URL: https://docs.ropensci.org/hoardr/, https://github.com/ropensci/hoardr
 BugReports: https://github.com/ropensci/hoardr/issues
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
