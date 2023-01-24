@@ -1,3 +1,10 @@
+# hoardr 0.5.3
+
+This patch release was submitted to CRAN because the maintainer of the project
+has changed.
+
+# hoardr 0.5.2
+
 ## Test environments
 
 * local OS X install, R 3.5.1 patched
@@ -16,7 +23,8 @@ No problems were found related to this package.
 
 ---
 
-This submission includes a fix so that many objects in the same R session don't share variables anymore.
+This submission includes a fix so that many objects in the same R session don't
+share variables anymore.
 
 Thanks!
 Scott Chamberlain
