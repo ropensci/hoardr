@@ -1,27 +1,24 @@
 {
-  "@context": [
-    "http://purl.org/codemeta/2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "hoardr",
-  "description": "Suite of tools for managing cached files, targeting\n    use in other R packages. Uses 'rappdirs' for cross-platform paths.\n    Provides utilities to manage cache directories, including targeting\n    files by path or by key; cached directories can be compressed and\n    uncompressed easily to save disk space.",
+  "description": "Suite of tools for managing cached files, targeting use in other R packages. Uses 'rappdirs' for cross-platform paths. Provides utilities to manage cache directories, including targeting files by path or by key; cached directories can be compressed and uncompressed easily to save disk space.",
   "name": "hoardr: Manage Cached Files",
+  "relatedLink": "https://docs.ropensci.org/hoardr/",
   "codeRepository": "https://github.com/ropensci/hoardr",
   "issueTracker": "https://github.com/ropensci/hoardr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.1",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.1 Patched (2018-11-18 r75627)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
-    "name": "Central R Archive Network (CRAN)",
+    "name": "Comprehensive R Archive Network (CRAN)",
     "url": "https://cran.r-project.org"
   },
   "author": [
@@ -29,31 +26,26 @@
       "@type": "Person",
       "givenName": "Scott",
       "familyName": "Chamberlain",
-      "email": "myrmecocystus@gmail.com"
+      "@id": "https://orcid.org/0000-0003-2542-2202"
+    }
+  ],
+  "contributor": [
+    {
+      "@type": "Person",
+      "givenName": "Tamás",
+      "familyName": "Stirling",
+      "email": "stirling.tamas@gmail.com"
     }
   ],
   "maintainer": [
     {
       "@type": "Person",
-      "givenName": "Scott",
-      "familyName": "Chamberlain",
-      "email": "myrmecocystus@gmail.com"
+      "givenName": "Tamás",
+      "familyName": "Stirling",
+      "email": "stirling.tamas@gmail.com"
     }
   ],
   "softwareSuggestions": [
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "roxygen2",
-      "name": "roxygen2",
-      "version": ">= 6.0.1",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=roxygen2"
-    },
     {
       "@type": "SoftwareApplication",
       "identifier": "testthat",
@@ -91,12 +83,11 @@
       "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "R6",
       "name": "R6",
-      "version": ">= 2.2.0",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -105,11 +96,10 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=R6"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "rappdirs",
       "name": "rappdirs",
-      "version": ">= 0.3.1",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -118,7 +108,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rappdirs"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "digest",
       "name": "digest",
@@ -129,14 +119,15 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=digest"
-    }
-  ],
-  "contIntegration": "https://travis-ci.org/ropensci/hoardr",
-  "developmentStatus": "active",
+    },
+    "SystemRequirements": null
+  },
+  "applicationCategory": "Data",
+  "isPartOf": "https://ropensci.org",
+  "keywords": ["caching", "data", "files", "xml", "pdf", "r", "rstats", "r-package"],
+  "fileSize": "31.604KB",
   "releaseNotes": "https://github.com/ropensci/hoardr/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/hoardr/blob/master/README.md",
-  "fileSize": "8.991KB",
-  "keywords": ["caching", "data", "files", "xml", "pdf", "r", "rstats", "r-package"],
-  "applicationCategory": "Data",
-  "isPartOf": "https://ropensci.org"
+  "contIntegration": ["https://github.com/ropensci/hoardr/actions?query=workflow%3AR-check", "https://codecov.io/github/ropensci/hoardr?branch=master"],
+  "developmentStatus": "https://www.repostatus.org/#active"
 }
