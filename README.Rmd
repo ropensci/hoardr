@@ -93,10 +93,6 @@ x$delete("foo.txt")
 x$list()
 ```
 
-## todo
-
-see [issue 1](https://github.com/ropensci/hoardr/issues/1)
-
 ## Meta
 
 * Please [report any issues or bugs](https://github.com/ropensci/hoardr/issues).
