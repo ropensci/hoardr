@@ -1,27 +1,25 @@
-context("hoard")
 test_that("hoard works", {
   aa <- hoard()
 
-  expect_is(aa, "HoardClient")
-  expect_is(aa, "R6")
-  expect_is(aa$cache_path_get, "function")
-  expect_is(aa$cache_path_set, "function")
-  expect_is(aa$compress, "function")
-  expect_is(aa$uncompress, "function")
-  expect_is(aa$delete, "function")
-  expect_is(aa$delete_all, "function")
-  expect_is(aa$details, "function")
-  expect_is(aa$files, "function")
-  expect_is(aa$key, "function")
-  expect_is(aa$keys, "function")
-  expect_is(aa$list, "function")
-  expect_is(aa$mkdir, "function")
+  expect_s3_class(aa, "HoardClient")
+  expect_s3_class(aa, "R6")
+  expect_equal(class(aa$cache_path_get), "function")
+  expect_equal(class(aa$cache_path_set), "function")
+  expect_equal(class(aa$compress), "function")
+  expect_equal(class(aa$uncompress), "function")
+  expect_equal(class(aa$delete), "function")
+  expect_equal(class(aa$delete_all), "function")
+  expect_equal(class(aa$details), "function")
+  expect_equal(class(aa$files), "function")
+  expect_equal(class(aa$key), "function")
+  expect_equal(class(aa$keys), "function")
+  expect_equal(class(aa$list), "function")
+  expect_equal(class(aa$mkdir), "function")
   expect_null(aa$path)
   expect_null(aa$type)
 })
 
-context("hoard: multiple instances")
-test_that("hoard works", {
+test_that("hoard works with multiple instances", {
   aa <- hoard()
   bb <- hoard()
 
@@ -36,7 +34,6 @@ test_that("hoard works", {
   expect_match(bb$cache_path_get(), 'helloworld')
 })
 
-context("hoard: fails well")
 test_that("hoard fails well", {
   expect_error(hoard(f = 5),
                  "unused argument")
