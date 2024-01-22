@@ -32,7 +32,7 @@ test_that("HoardClient works when files don't exist", {
 
   # use full_path
   expect_type(
-    bb$cache_path_set(full_path = tempdir()),
+    bb$cache_path_set(full_path = file.path(tempdir(), "foobar")),
     'character'
   )
 
