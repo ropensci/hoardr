@@ -7,7 +7,7 @@
 [![cran
 checks](https://badges.cranchecks.info/worst/hoardr.svg)](https://badges.cranchecks.info/worst/hoardr.svg)
 [![R-check](https://github.com/ropensci/hoardr/workflows/R-check/badge.svg)](https://github.com/ropensci/hoardr/actions?query=workflow%3AR-check)
-[![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hoardr?branch=master)
+[![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/hoardr?branch=master)
 [![rstudio mirror
 downloads](https://cranlogs.r-pkg.org/badges/hoardr)](https://cran.r-project.org/package=hoardr)
 [![cran
@@ -54,7 +54,7 @@ set cache path
 
 ``` r
 x$cache_path_set("foobar", type = 'tempdir')
-#> [1] "/tmp/RtmpQCahl1/R/foobar"
+#> [1] "/tmp/Rtmp4oqK58/R/foobar"
 ```
 
 make the directory if doesn’t exist
@@ -73,7 +73,7 @@ list the files
 
 ``` r
 x$list()
-#> [1] "/tmp/RtmpQCahl1/R/foobar/foo.txt"
+#> [1] "/tmp/Rtmp4oqK58/R/foobar/foo.txt"
 ```
 
 details
@@ -81,7 +81,7 @@ details
 ``` r
 x$details()
 #> <cached files>
-#>   directory: /tmp/RtmpQCahl1/R/foobar
+#>   directory: /tmp/Rtmp4oqK58/R/foobar
 #> 
 #>   file: /foo.txt
 #>   size: 0 mb
@@ -94,10 +94,6 @@ x$delete("foo.txt")
 x$list()
 #> character(0)
 ```
-
-## todo
-
-see [issue 1](https://github.com/ropensci/hoardr/issues/1)
 
 ## Meta
 

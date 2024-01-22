@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 [![status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![cran checks](https://badges.cranchecks.info/worst/hoardr.svg)](https://badges.cranchecks.info/worst/hoardr.svg)
 [![R-check](https://github.com/ropensci/hoardr/workflows/R-check/badge.svg)](https://github.com/ropensci/hoardr/actions?query=workflow%3AR-check)
-[![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/hoardr?branch=master)
+[![codecov.io](https://codecov.io/github/ropensci/hoardr/coverage.svg?branch=master)](https://app.codecov.io/github/ropensci/hoardr?branch=master)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/hoardr)](https://cran.r-project.org/package=hoardr)
 [![cran version](https://www.r-pkg.org/badges/version/hoardr)](https://cran.r-project.org/package=hoardr)
 
