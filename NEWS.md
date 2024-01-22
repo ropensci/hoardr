@@ -1,3 +1,11 @@
+hoardr 0.5.4
+============
+
+### BUG FIXES
+
+* `testthat::test_check()` failed when full path for cache dir was `tempdir()`. 
+Replaced `tempdir()` with a full path that works (#23).
+
 hoardr 0.5.3
 ============
 
