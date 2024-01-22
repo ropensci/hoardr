@@ -29,3 +29,4 @@ RoxygenNote: 7.2.3
 X-schema.org-applicationCategory: Data
 X-schema.org-keywords: caching, data, files, xml, pdf
 X-schema.org-isPartOf: https://ropensci.org
+Config/testthat/edition: 3

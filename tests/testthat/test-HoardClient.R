@@ -1,13 +1,11 @@
-context("HoardClient - when files don't exist")
-
-test_that("HoardClient works", {
+test_that("HoardClient works when files don't exist", {
   aa <- HoardClient
-  expect_is(aa, "R6ClassGenerator")
+  expect_s3_class(aa, "R6ClassGenerator")
 
   bb <- HoardClient$new()
 
-  expect_is(bb, "HoardClient")
-  expect_is(bb, "R6")
+  expect_s3_class(bb, "HoardClient")
+  expect_s3_class(bb, "R6")
   expect_null(bb$path)
   expect_null(bb$type)
 
@@ -17,13 +15,13 @@ test_that("HoardClient works", {
 
   # test cache_path_get method
   ## before set
-  expect_is(bb$cache_path_get, "function")
+  expect_equal(class(bb$cache_path_get), "function")
   expect_null(bb$cache_path_get())
 
   # test cache_path_set method
-  expect_is(bb$cache_path_set, "function")
+  expect_equal(class(bb$cache_path_set), "function")
   expect_equal(length(bb$cache_path_set()), 0)
-  expect_is(
+  expect_type(
     bb$cache_path_set(path = "test123", type = 'tempdir'),
     "character"
   )
@@ -33,8 +31,8 @@ test_that("HoardClient works", {
   )
 
   # use full_path
-  expect_is(
-    bb$cache_path_set(full_path = tempdir()),
+  expect_type(
+    bb$cache_path_set(full_path = file.path(tempdir(), "foobar")),
     'character'
   )
 
@@ -45,59 +43,59 @@ test_that("HoardClient works", {
 
   # test cache_path_get method
   ## after set
-  expect_is(bb$cache_path_get(), "character")
+  expect_type(bb$cache_path_get(), "character")
 
   # test list method
-  expect_is(bb$list, "function")
+  expect_equal(class(bb$list), "function")
   expect_equal(length(bb$list()), 0)
 
   # test mkdir method
-  expect_is(bb$mkdir, "function")
+  expect_equal(class(bb$mkdir), "function")
   expect_false(dir.exists(bb$cache_path_get()))
   expect_true(bb$mkdir())
   expect_true(dir.exists(bb$cache_path_get()))
 
   # test delete method
-  expect_is(bb$delete, "function")
+  expect_equal(class(bb$delete), "function")
   ## no files input
   expect_error(bb$delete(), "argument \"files\" is missing")
 
   # test delete_all method
-  expect_is(bb$delete_all, "function")
+  expect_equal(class(bb$delete_all), "function")
   ## no files input
   expect_message(bb$delete_all(), "no files found")
   expect_null(suppressMessages(bb$delete_all()))
 
   # test details method
-  expect_is(bb$details, "function")
+  expect_equal(class(bb$details), "function")
   ## no files in yet
   deets1 <- bb$details()
   expect_equal(length(deets1), 0)
 
   # test key method
-  expect_is(bb$key, "function")
+  expect_equal(class(bb$key), "function")
   ## no x param passed
   expect_error(bb$key(), "argument \"x\" is missing")
   ## no files in yet
   expect_error(bb$key(x = "adfdf"), "file does not exist")
 
   # test keys method
-  expect_is(bb$keys, "function")
+  expect_equal(class(bb$keys), "function")
   ## no files in yet, gives NULL
   expect_null(bb$keys())
 
   # test files method
-  expect_is(bb$files, "function")
+  expect_equal(class(bb$files), "function")
   ## no files in yet, gives NULL
   expect_null(bb$files())
 
   # test compress method
-  expect_is(bb$compress, "function")
+  expect_equal(class(bb$compress), "function")
   ## no files in yet, gives error
   expect_error(bb$compress(), "no files to compress")
 
   # test uncompress method
-  expect_is(bb$uncompress, "function")
+  expect_equal(class(bb$uncompress), "function")
   ## no files in yet, gives error
   expect_message(bb$uncompress(), "no files to uncompress")
 
@@ -105,20 +103,18 @@ test_that("HoardClient works", {
   ## add some files first
   cat(1:10000L, file = file.path(bb$cache_path_get(), "bar1.txt"))
   cat(1:10000L, file = file.path(bb$cache_path_get(), "bar2.txt"))
-  expect_is(bb$exists('bar1.txt'), "data.frame")
+  expect_s3_class(bb$exists('bar1.txt'), "data.frame")
   expect_true(bb$exists('bar1.txt')$exists)
   expect_false(bb$exists('asdfasdsdf')$exists)
   ## no files in yet, gives error
   expect_error(bb$exists(), "argument \"files\" is missing")
 })
 
-context("HoardClient - when files exist")
-
-test_that("HoardClient works", {
+test_that("HoardClient works when files exist", {
   cc <- HoardClient$new()
 
-  expect_is(cc, "HoardClient")
-  expect_is(cc, "R6")
+  expect_s3_class(cc, "HoardClient")
+  expect_s3_class(cc, "R6")
 
   # set cache path
   cc$cache_path_set(path = "test456", type = 'tempdir')
@@ -133,9 +129,9 @@ test_that("HoardClient works", {
   cat(1:10000L, file = file.path(cc$cache_path_get(), "foo3.txt"))
 
   # test list method
-  expect_is(cc$list, "function")
+  expect_equal(class(cc$list), "function")
   expect_equal(length(cc$list()), 4)
-  expect_is(cc$list(), "character")
+  expect_type(cc$list(), "character")
 
   # test delete method
   expect_error(cc$delete(), "argument \"files\" is missing")
@@ -151,9 +147,9 @@ test_that("HoardClient works", {
 
   # test details method
   deets1 <- cc$details()
-  expect_is(deets1, "cache_info")
+  expect_equal(class(deets1), "cache_info")
   expect_equal(length(deets1), 4)
-  expect_is(deets1[[1]], "list")
+  expect_type(deets1[[1]], "list")
   expect_named(deets1[[1]], c('file', 'type', 'size'))
   ## print method print.cache_info
   expect_output(print(deets1), "<cached files>")
@@ -162,22 +158,22 @@ test_that("HoardClient works", {
   expect_output(print(deets1), "mb")
 
   # test key method
-  expect_is(cc$key(x = cc$list()[1]), "character")
+  expect_type(cc$key(x = cc$list()[1]), "character")
   expect_identical(cc$key(x = cc$list()[1]), cc$key(x = cc$list()[1]))
 
   # test keys method
-  expect_is(cc$keys(), "character")
+  expect_type(cc$keys(), "character")
   expect_equal(length(cc$keys()), 4)
 
   # test files method
-  expect_is(cc$files(), "list")
+  expect_type(cc$files(), "list")
   zz <- cc$files()[[1]]
-  expect_is(zz, "HoardFile")
-  expect_is(zz$exists, "function")
+  expect_s3_class(zz, "HoardFile")
+  expect_equal(class(zz$exists), "function")
   expect_true(zz$exists())
-  expect_is(zz$path, "character")
+  expect_type(zz$path, "character")
   expect_equal(zz$path, cc$list()[1])
-  expect_is(zz$print, "function")
+  expect_equal(class(zz$print), "function")
   expect_output(zz$print(), "<hoard file>")
   expect_output(zz$print(), "path:")
 
