@@ -3,6 +3,13 @@
 This patch release was submitted in response to a notification from the CRAN
 team regarding a test failure which emerged recently.
 
+## revdepcheck results
+
+We checked 11 reverse dependencies (5 from CRAN + 6 from Bioconductor), comparing R CMD check results across CRAN and dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
+
 # hoardr 0.5.3
 
 This patch release was submitted to CRAN because the maintainer of the project
