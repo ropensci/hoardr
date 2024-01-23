@@ -8,13 +8,13 @@
   "codeRepository": "https://github.com/ropensci/hoardr",
   "issueTracker": "https://github.com/ropensci/hoardr/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.2 (2022-10-31)",
+  "runtimePlatform": "R version 4.3.2 (2023-10-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -125,9 +125,9 @@
   "applicationCategory": "Data",
   "isPartOf": "https://ropensci.org",
   "keywords": ["caching", "data", "files", "xml", "pdf", "r", "rstats", "r-package"],
-  "fileSize": "31.604KB",
+  "fileSize": "32.029KB",
   "releaseNotes": "https://github.com/ropensci/hoardr/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/hoardr/blob/master/README.md",
-  "contIntegration": ["https://github.com/ropensci/hoardr/actions?query=workflow%3AR-check", "https://codecov.io/github/ropensci/hoardr?branch=master"],
+  "contIntegration": ["https://github.com/ropensci/hoardr/actions?query=workflow%3AR-check", "https://app.codecov.io/github/ropensci/hoardr?branch=master"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
