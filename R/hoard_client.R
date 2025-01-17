@@ -28,7 +28,7 @@
 #'       \itemize{
 #'        \item path (character) the path to be appended to the cache path set
 #'         by `type`
-#'        \item type (character) the type of cache, see [rappdirs]
+#'        \item type (character) the type of cache, see [rappdirs::rappdirs()].
 #'        \item prefix (character) prefix to the `path` value. Default: "R"
 #'        \item full_path (character) instead of using `path`, `type`, and `prefix`
 #'         just set the full path with this parameter
