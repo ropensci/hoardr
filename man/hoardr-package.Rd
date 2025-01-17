@@ -15,6 +15,15 @@ files for another R package. In addition, you can export functions in
 your own package using \code{hoardr} for users to manage their cached
 files.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://docs.ropensci.org/hoardr/}
+  \item \url{https://github.com/ropensci/hoardr}
+  \item Report bugs at \url{https://github.com/ropensci/hoardr/issues}
+}
+
+}
 \author{
 Scott Chamberlain \email{myrmecocystus@gmail.com}
 }
