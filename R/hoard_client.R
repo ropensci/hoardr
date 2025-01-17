@@ -204,9 +204,9 @@ HoardClient <- R6::R6Class(
       if (is.null(full_path)) {
         self$path <- path
         private$hoard_env$cache_path <-
-          file.path(eval(parse(text = type))(), prefix, path)
+          chartr("\\", "/", file.path(eval(parse(text = type))(), prefix, path))
       } else {
-        private$hoard_env$cache_path <- full_path
+        private$hoard_env$cache_path <- chartr("\\", "/", full_path)
       }
       # return path to user
       self$cache_path_get()
