@@ -1,3 +1,12 @@
+hoardr 0.5.5
+============
+
+### BUG FIXES
+
+* Some tests began to fail on MS Windows, probably because of mixed slash
+directions. Slash directions are now normalised (#26).
+
+
 hoardr 0.5.4
 ============
 
@@ -5,6 +14,7 @@ hoardr 0.5.4
 
 * `testthat::test_check()` failed when full path for cache dir was `tempdir()`. 
 Replaced `tempdir()` with a full path that works (#23).
+
 
 hoardr 0.5.3
 ============
