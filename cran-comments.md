@@ -1,3 +1,8 @@
+# hoardr 0.5.5
+
+This patch release was submitted in response to a notification from the CRAN
+team regarding a test failure which emerged recently.
+
 # hoardr 0.5.4
 
 This patch release was submitted in response to a notification from the CRAN
