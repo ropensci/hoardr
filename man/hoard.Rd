@@ -35,7 +35,7 @@ actually make the directory, but just sets the path to it.
 \itemize{
 \item path (character) the path to be appended to the cache path set
 by \code{type}
-\item type (character) the type of cache, see \link{rappdirs}
+\item type (character) the type of cache, see \code{\link[rappdirs:rappdirs-package]{rappdirs::rappdirs()}}.
 \item prefix (character) prefix to the \code{path} value. Default: "R"
 \item full_path (character) instead of using \code{path}, \code{type}, and \code{prefix}
 just set the full path with this parameter

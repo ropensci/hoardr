@@ -28,7 +28,7 @@
 #'       \itemize{
 #'        \item path (character) the path to be appended to the cache path set
 #'         by `type`
-#'        \item type (character) the type of cache, see [rappdirs]
+#'        \item type (character) the type of cache, see [rappdirs::rappdirs()].
 #'        \item prefix (character) prefix to the `path` value. Default: "R"
 #'        \item full_path (character) instead of using `path`, `type`, and `prefix`
 #'         just set the full path with this parameter
@@ -204,9 +204,9 @@ HoardClient <- R6::R6Class(
       if (is.null(full_path)) {
         self$path <- path
         private$hoard_env$cache_path <-
-          file.path(eval(parse(text = type))(), prefix, path)
+          chartr("\\", "/", file.path(eval(parse(text = type))(), prefix, path))
       } else {
-        private$hoard_env$cache_path <- full_path
+        private$hoard_env$cache_path <- chartr("\\", "/", full_path)
       }
       # return path to user
       self$cache_path_get()
